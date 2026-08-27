@@ -1,0 +1,202 @@
+@use '../helpers' as *;
+
+.slider {
+  /* Размеры слайда. 400 — высота, 600 — ширина (как в ТЗ). Меняются здесь. */
+  --slide-width: #{rem(600)};
+  --slide-height: #{rem(400)};
+  --slider-gap: #{rem(36)};
+  --slider-duration: 0.9s;
+  --slider-easing: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  user-select: none;
+
+  &--teleporting .slide,
+  &--teleporting .slide__media,
+  &--teleporting .side-nav__title {
+    transition: none;
+  }
+
+  &__viewport {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: grab; /* добавлено */
+  }
+
+  /* добавлено: курсор при драге */
+  &.is-dragging &__viewport {
+    cursor: grabbing;
+  }
+
+  &__aside {
+    // ... существующие свойства ...
+    pointer-events: none; /* добавлено: пустая зона колонки не мешает драгу */
+  }
+
+  /* добавлено: интерактивность возвращаем самой навигации */
+  .side-nav {
+    pointer-events: auto;
+  }
+
+  @include laptop {
+    --slide-width: #{rem(520)};
+    --slide-height: #{rem(347)};
+  }
+
+  @include mobile {
+    --slide-width: 82vw;
+    --slide-height: 54.7vw; /* 82vw * 400 / 600 */
+  }
+
+  &__viewport {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &__track {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--slider-gap);
+    height: 100%;
+    transition: transform var(--slider-duration) var(--slider-easing);
+    will-change: transform;
+
+    &--instant {
+      transition: none;
+    }
+  }
+
+  &__slide {
+    flex: 0 0 auto;
+    margin-inline: auto;
+  }
+
+  /* Заголовок слева от активного слайда */
+  &__caption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    width: calc((100% - var(--slide-width)) / 2 - var(--container-padding-x));
+    padding-left: var(--container-padding-x);
+    pointer-events: none;
+  }
+
+  &__caption-inner {
+    display: flex;
+    flex-direction: column;
+    gap: rem(18);
+    padding-right: rem(24);
+  }
+
+  &__counter {
+    font-family: var(--font-family-accent);
+    font-size: rem(13);
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--color-light-40);
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(76, 42);
+    line-height: 1.04;
+  }
+
+  /* Навигация справа от активного слайда */
+  &__aside {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: calc((100% - var(--slide-width)) / 2 - var(--container-padding-x));
+    padding-right: var(--container-padding-x);
+  }
+
+  /* Подсказка снизу */
+  &__hint {
+    position: absolute;
+    bottom: rem(24);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(10);
+    pointer-events: none;
+  }
+
+  &__hint-line {
+    width: 1px;
+    height: rem(32);
+    background-color: var(--color-light-40);
+    transform-origin: top center;
+    animation: slider-hint 1.9s ease-in-out infinite;
+  }
+
+  &__hint-text {
+    font-size: rem(11);
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+  }
+
+  @include mobile {
+    &__caption {
+      top: auto;
+      bottom: rem(70);
+      width: 100%;
+      padding-inline: var(--container-padding-x);
+      justify-content: center;
+    }
+
+    &__caption-inner {
+      align-items: center;
+      text-align: center;
+      padding-right: 0;
+    }
+
+    &__aside,
+    &__hint {
+      display: none;
+    }
+  }
+}
+
+@keyframes slider-hint {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  45% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider__track,
+  .slider__hint-line {
+    transition: none;
+    animation: none;
+  }
+}

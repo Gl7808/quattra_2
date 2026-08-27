@@ -1,0 +1,103 @@
+@use '../helpers' as *;
+
+.crosshair {
+  /* Отступ линий от краёв активного слайда.
+     В px, т.к. значение читается скриптом через getComputedStyle */
+  --crosshair-offset: 20px;
+
+  /* Уголки на перекрестиях: длина плеча от точки пересечения и его толщина */
+  --crosshair-tick: #{rem(20)};
+  --crosshair-tick-size: #{rem(2)};
+
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  &--intro {
+    z-index: 101;
+  }
+
+  @include mobile {
+    --crosshair-offset: 18px;
+  }
+
+  &__line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-light-35);
+    opacity: 0.5;
+    will-change: transform;
+  }
+
+  &__line--top,
+  &__line--bottom {
+    width: 100%;
+    height: 1px;
+  }
+
+  &__line--left,
+  &__line--right {
+    width: 1px;
+    height: 100%;
+  }
+
+  /* Узел перекрестия: точка 0×0, два плеча-уголка рисуем псевдоэлементами */
+  &__corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0.9;
+    will-change: transform;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: var(--color-light-20);
+    }
+
+    /* горизонтальное плечо — центрируем по горизонтальной линии */
+    &::before {
+      top: calc(var(--crosshair-tick-size) / -2);
+      width: var(--crosshair-tick);
+      height: var(--crosshair-tick-size);
+    }
+
+    /* вертикальное плечо — центрируем по вертикальной линии */
+    &::after {
+      left: calc(var(--crosshair-tick-size) / -2);
+      width: var(--crosshair-tick-size);
+      height: var(--crosshair-tick);
+    }
+  }
+
+  /* Направление уголков — внутрь к слайду */
+
+  /* левый-верхний: вправо и вниз */
+  &__corner--top-left {
+    &::before { left: 0; }
+    &::after { top: 0; }
+  }
+
+  /* правый-верхний: влево и вниз */
+  &__corner--top-right {
+    &::before { right: 0; }
+    &::after { top: 0; }
+  }
+
+  /* левый-нижний: вправо и вверх */
+  &__corner--bottom-left {
+    &::before { left: 0; }
+    &::after { bottom: 0; }
+  }
+
+  /* правый-нижний: влево и вверх */
+  &__corner--bottom-right {
+    &::before { right: 0; }
+    &::after { bottom: 0; }
+  }
+}

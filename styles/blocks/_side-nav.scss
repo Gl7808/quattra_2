@@ -1,0 +1,114 @@
+@use '../helpers' as *;
+
+.side-nav {
+  --titles-row: #{rem(26)};
+  --titles-gap: #{rem(8)};
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: rem(36);
+
+  /* Цифры: окно из 5 ближайших слайдов */
+  &__numbers {
+    display: flex;
+    align-items: baseline;
+    gap: rem(16);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__number {
+    position: relative;
+    padding: rem(4) rem(2);
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-family-accent);
+    font-size: rem(15);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--color-light-40);
+    transition: color var(--transition-duration);
+
+    @include hover() {
+      color: var(--color-light-20);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: var(--color-light-10);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    &.is-active {
+      color: var(--color-light-10);
+      font-weight: 700;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  /* Вертикальный мини-слайдер заголовков */
+  &__titles {
+    height: calc(var(--titles-row) * 3 + var(--titles-gap) * 2);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  }
+
+  &__titles-track {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--titles-gap);
+    transition: transform var(--slider-duration) var(--slider-easing);
+    will-change: transform;
+
+    &--instant {
+      transition: none;
+    }
+  }
+
+  &__title {
+    height: var(--titles-row);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: var(--font-family-base);
+    font-size: rem(13);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+    opacity: 0.45;
+    transition: color 0.3s ease, opacity 0.3s ease;
+
+    @include hover() {
+      color: var(--color-light-25);
+      opacity: 0.8;
+    }
+
+    &.is-near {
+      color: var(--color-light-35);
+      opacity: 0.7;
+    }
+
+    &.is-active {
+      color: var(--color-light-10);
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@use '../helpers' as *;
+
+.header {
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(20);
+  padding: rem(28) var(--container-padding-x);
+
+  &__logo {
+    font-family: var(--font-family-accent);
+    font-size: rem(18);
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--color-light-10);
+
+    /* глобальный hover красит ссылки в акцент — здесь держим монохром */
+    @include hover() {
+      color: var(--color-light-10);
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: rem(38);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__nav-link {
+    font-size: rem(13);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-light-35);
+
+    @include hover() {
+      color: var(--color-light-10);
+    }
+  }
+
+  @include mobile {
+    padding-block: rem(18);
+
+    &__nav {
+      display: none;
+    }
+  }
+}

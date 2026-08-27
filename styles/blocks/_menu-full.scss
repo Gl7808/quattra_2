@@ -1,0 +1,51 @@
+@use '../helpers' as *;
+
+.menu-full {
+  &__section + &__section {
+    margin-top: rem(36);
+  }
+
+  &__heading {
+    margin: 0 0 rem(16);
+    @include fluid-text(26, 20);
+    letter-spacing: 0.06em;
+    color: var(--color-light-20);
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item + &__item {
+    margin-top: rem(12);
+  }
+
+  &__row {
+    display: flex;
+    align-items: baseline;
+    gap: rem(10);
+  }
+
+  &__name {
+    font-size: rem(15);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-light-25);
+  }
+
+  &__dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--color-dark-35);
+    transform: translateY(-3px);
+  }
+
+  &__price {
+    font-family: var(--font-family-accent);
+    font-size: rem(15);
+    font-weight: 600;
+    color: var(--color-light-10);
+    white-space: nowrap;
+  }
+}

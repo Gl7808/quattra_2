@@ -1,0 +1,58 @@
+@use 'helpers' as *;
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+
+body{
+  @include fluid-text(18, 14);
+
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  letter-spacing: 0px;
+  background-color: #090909;
+  color: var(--color-light-35);
+
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+  color: inherit;
+    @include hover(){
+      color: var(--color-accent);
+    }
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-style: normal;
+  color: var(--color-light-10);
+  font-family: Roboto;
+}
+
+h1, .h1 {
+  @include fluid-text(100, 50);
+}
+
+h2, .h2 {
+  @include fluid-text(49, 41);
+}
+
+h3, .h3 {
+  @include fluid-text(40, 28);
+}
+
+h4, .h4 {
+  @include fluid-text(28, 18);
+}
+

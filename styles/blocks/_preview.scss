@@ -1,0 +1,109 @@
+@use '../helpers' as *;
+
+.preview {
+  position: relative;
+  height: var(--preview-height);
+  overflow: hidden;
+
+  &__track {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--slide-gap);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+
+    &--instant {
+      transition: none;
+    }
+  }
+
+  &__slide {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    height: var(--slide-height);
+    overflow: hidden;
+    border: 1px solid var(--color-dark-25);
+    background-color: var(--color-dark-15);
+    opacity: 0.3;
+    transform: scale(0.92);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+
+    &.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.05);
+  }
+
+  /* Заглушка, если картинки нет */
+  &__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: rem(20);
+    text-align: center;
+    font-family: var(--font-family-accent);
+    font-size: rem(14);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+  }
+
+  /* Рамка-прицел вокруг активного блюда */
+  &__frame {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: calc((100% - var(--slide-height)) / 2);
+    height: var(--slide-height);
+    pointer-events: none;
+
+    &.is-pulsing {
+      animation: preview-frame-pulse 0.4s ease;
+    }
+  }
+
+  &__frame-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color-light-35);
+    opacity: 0.5;
+  }
+
+  &__frame-line--top { top: 0; }
+  &__frame-line--bottom { bottom: 0; }
+
+  &__frame-corner {
+    position: absolute;
+    width: rem(18);
+    height: rem(18);
+    border: 0 solid var(--color-light-20);
+  }
+
+  &__frame-corner--tl { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+  &__frame-corner--tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+  &__frame-corner--bl { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+  &__frame-corner--br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+}
+
+@keyframes preview-frame-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  45% { transform: scale(1.025); opacity: 0.55; }
+  100% { transform: scale(1); opacity: 1; }
+}

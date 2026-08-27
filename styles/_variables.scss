@@ -1,0 +1,50 @@
+@use 'helpers' as *;
+
+:root {
+
+
+  --color-light-10 : #ffffff;
+  --color-light-15 : #fafafa;
+  --color-light-20 : #f5f5f5;
+  --color-light-25 : #eeeeee;
+  --color-light-30 : #e0e0e0;
+  --color-light-35 : #808080;
+  --color-light-40 : #5c5c60;
+  --color-light-40-5 : rgba(92, 92, 96, 0.58);
+
+  --color-dark-5 : #0a0a0a;
+  --color-dark-10 : #0c0c0c;
+  --color-dark-12 : #0d0d0d;
+  --color-dark-15 : #1a1a1a;
+  --color-dark-15-5 : rgba(26, 26, 26, 0.9);
+  --color-dark-15-8 : rgba(26, 26, 26, 0.5);
+  --color-dark-20 : #262626;
+  --color-dark-25 : #333333;
+  --color-dark-30 : #424242;
+  --color-dark-35 : #525252;
+  --color-dark-40 : #636363;
+
+
+  --color-main-light: #FFFFFF;
+  --color-main-dark: #1D1D1D;
+  --color-accent : #3eb489;
+  --color-game-accent: #FF2400;
+
+  --font-family-base: 'Montserrat', sans-serif;
+  --font-family-accent: 'Roboto', sans-serif;
+
+  --container-width: #{rem(1500)};
+  --container-padding-x: #{rem(50)};
+  --section-padding-y: #{rem(50)};
+
+  @include laptop{
+    --container-width: #{rem(1200)};
+  }
+  @include mobile{
+    --container-padding-x: #{rem(20)};
+    --section-padding-y: #{rem(20)};
+  }
+
+  --transition-duration: 0.2s;
+
+}

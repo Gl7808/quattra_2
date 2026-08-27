@@ -1,0 +1,50 @@
+[
+  { "name": "Панкейки классические", "price": 450, "section": "Завтраки", "image": "images/kitchen/01.jpg" },
+  { "name": "Панкейки с голубикой", "price": 490, "section": "Завтраки", "image": "images/kitchen/02.jpg" },
+  { "name": "Сырники с кокосовой сгущенкой", "price": 450, "section": "Завтраки", "image": "images/kitchen/03.jpg" },
+  { "name": "Омлет с креветками", "price": 550, "section": "Завтраки", "image": "images/kitchen/04.jpg" },
+  { "name": "Сборный завтрак с лососем", "price": 690, "section": "Завтраки", "image": "images/kitchen/05.jpg" },
+
+  { "name": "Салат с лососем", "price": 800, "section": "Салаты", "image": "images/kitchen/06.jpg" },
+  { "name": "Салат с баклажанами", "price": 600, "section": "Салаты", "image": "images/kitchen/07.jpg" },
+  { "name": "Салат с хумусом", "price": 500, "section": "Салаты", "image": "images/kitchen/08.jpg" },
+  { "name": "Цезарь с креветками", "price": 590, "section": "Салаты", "image": "images/kitchen/09.jpg" },
+
+  { "name": "Боул с креветками", "price": 650, "section": "Боулы", "image": "images/kitchen/10.jpg" },
+  { "name": "Боул с куриным бедром", "price": 550, "section": "Боулы", "image": "images/kitchen/11.jpg" },
+
+  { "name": "Врап с креветками", "price": 550, "section": "Врапы", "image": "images/kitchen/12.jpg" },
+  { "name": "Врап с курицей", "price": 390, "section": "Врапы", "image": "images/kitchen/13.jpg" },
+
+  { "name": "Борщ", "price": 550, "section": "Супы", "image": "images/kitchen/14.jpg" },
+  { "name": "Том ям", "price": 650, "section": "Супы", "image": "images/kitchen/15.jpg" },
+  { "name": "Суп-лапша с курицей", "price": 350, "section": "Супы", "image": "images/kitchen/16.jpg" },
+
+  { "name": "Батат фри с гуакомоле", "price": 400, "section": "Закуски", "image": "images/kitchen/17.jpg" },
+  { "name": "Батат фри с соусом чипотле", "price": 350, "section": "Закуски", "image": "images/kitchen/18.jpg" },
+  { "name": "Картофель фри с трюфельным соусом", "price": 300, "section": "Закуски", "image": "images/kitchen/19.jpg" },
+  { "name": "Креветки темпура", "price": 590, "section": "Закуски", "image": "images/kitchen/20.jpg" },
+  { "name": "Сырные шарики", "price": 350, "section": "Закуски", "image": "images/kitchen/21.jpg" },
+
+  { "name": "Лингвини с песто", "price": 500, "section": "Лингвини", "image": "images/kitchen/22.jpg" },
+  { "name": "Лингвини с креветками", "price": 600, "section": "Лингвини", "image": "images/kitchen/23.jpg" },
+  { "name": "Лингвини с уткой", "price": 650, "section": "Лингвини", "image": "images/kitchen/24.jpg" },
+  { "name": "Лингвини карбонара", "price": 500, "section": "Лингвини", "image": "images/kitchen/25.jpg" },
+
+  { "name": "Бургер с бри", "price": 690, "section": "Бургеры", "image": "images/kitchen/26.jpg" },
+  { "name": "Бургер с рваной говядиной", "price": 790, "section": "Бургеры", "image": "images/kitchen/27.jpg" },
+  { "name": "Бургер Релиш", "price": 590, "section": "Бургеры", "image": "images/kitchen/28.jpg" },
+
+  { "name": "Авокадо краб", "price": 1200, "section": "Роллы", "image": "images/kitchen/29.jpg" },
+  { "name": "Креветка лосось", "price": 700, "section": "Роллы", "image": "images/kitchen/30.jpg" },
+  { "name": "Креветка том ям", "price": 750, "section": "Роллы", "image": "images/kitchen/31.jpg" },
+  { "name": "Угорь креветка", "price": 650, "section": "Роллы", "image": "images/kitchen/32.jpg" },
+  { "name": "Угорь лосось", "price": 850, "section": "Роллы", "image": "images/kitchen/33.jpg" },
+  { "name": "Филадельфия", "price": 650, "section": "Роллы", "image": "images/kitchen/34.jpg" },
+  { "name": "Японский лосось", "price": 1000, "section": "Роллы", "image": "images/kitchen/35.jpg" },
+
+  { "name": "Сан себастьян", "price": 420, "section": "Десерты", "image": "images/kitchen/36.jpg" },
+  { "name": "Тирамису", "price": 400, "section": "Десерты", "image": "images/kitchen/37.jpg" },
+  { "name": "Шоколад вишня", "price": 450, "section": "Десерты", "image": "images/kitchen/38.jpg" },
+  { "name": "Меренговый рулет", "price": 400, "section": "Десерты", "image": "images/kitchen/39.jpg" }
+]

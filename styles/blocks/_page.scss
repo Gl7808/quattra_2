@@ -1,0 +1,27 @@
+@use '../helpers' as *;
+
+html,
+body {
+  height: 100%;
+}
+
+/* Экраны без скролла (главная со слайдером) */
+body:has(.page--fixed) {
+  overflow: hidden;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  isolation: isolate;
+  background: radial-gradient(60% 50% at 50% 46%, var(--color-dark-15) 0%, var(--color-dark-10) 100%);
+}
+
+.page--fixed {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
+}

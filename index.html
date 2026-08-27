@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quattra</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+<div class="loader" data-loader>
+    <div class="loader__counter">
+        <span class="loader__wheel" data-loader-wheel="hundreds">
+            <span class="loader__wheel-track">
+                <span class="loader__digit">0</span>
+                <span class="loader__digit">1</span>
+                <span class="loader__digit">2</span>
+                <span class="loader__digit">3</span>
+                <span class="loader__digit">4</span>
+                <span class="loader__digit">5</span>
+                <span class="loader__digit">6</span>
+                <span class="loader__digit">7</span>
+                <span class="loader__digit">8</span>
+                <span class="loader__digit">9</span>
+            </span>
+        </span>
+        <span class="loader__wheel" data-loader-wheel="tens">
+            <span class="loader__wheel-track">
+                <span class="loader__digit">0</span>
+                <span class="loader__digit">1</span>
+                <span class="loader__digit">2</span>
+                <span class="loader__digit">3</span>
+                <span class="loader__digit">4</span>
+                <span class="loader__digit">5</span>
+                <span class="loader__digit">6</span>
+                <span class="loader__digit">7</span>
+                <span class="loader__digit">8</span>
+                <span class="loader__digit">9</span>
+            </span>
+        </span>
+        <span class="loader__wheel" data-loader-wheel="units">
+            <span class="loader__wheel-track">
+                <span class="loader__digit">0</span>
+                <span class="loader__digit">1</span>
+                <span class="loader__digit">2</span>
+                <span class="loader__digit">3</span>
+                <span class="loader__digit">4</span>
+                <span class="loader__digit">5</span>
+                <span class="loader__digit">6</span>
+                <span class="loader__digit">7</span>
+                <span class="loader__digit">8</span>
+                <span class="loader__digit">9</span>
+            </span>
+        </span>
+    </div>
+</div>
+
+<div class="page page--fixed">
+
+    <!-- Прицел: 4 линии вокруг активного слайда -->
+    <div class="crosshair" data-crosshair aria-hidden="true">
+        <span class="crosshair__line crosshair__line--top" data-crosshair-line="top"></span>
+        <span class="crosshair__line crosshair__line--bottom" data-crosshair-line="bottom"></span>
+        <span class="crosshair__line crosshair__line--left" data-crosshair-line="left"></span>
+        <span class="crosshair__line crosshair__line--right" data-crosshair-line="right"></span>
+        <span class="crosshair__corner crosshair__corner--top-left" data-crosshair-corner="top-left"></span>
+        <span class="crosshair__corner crosshair__corner--top-right" data-crosshair-corner="top-right"></span>
+        <span class="crosshair__corner crosshair__corner--bottom-left" data-crosshair-corner="bottom-left"></span>
+        <span class="crosshair__corner crosshair__corner--bottom-right" data-crosshair-corner="bottom-right"></span>
+    </div>
+
+    <header class="header">
+        <a class="header__logo" href="#">Quattra</a>
+
+        <nav class="header__nav" aria-label="Основная навигация">
+            <ul class="header__nav-list">
+                <li class="header__nav-item"><a class="header__nav-link" href="#">Cyber</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#">Kitchen</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#">Lounge</a></li>
+            </ul>
+        </nav>
+
+        <ul class="header__social social">
+            <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+        </ul>
+    </header>
+
+    <main class="slider" data-slider>
+        <div class="slider-bg" data-slider-bg aria-hidden="true">
+            <img class="slider-bg__layer" data-slider-bg-layer alt="" />
+            <img class="slider-bg__layer" data-slider-bg-layer alt="" />
+        </div>
+        <div class="slider__viewport" data-slider-viewport>
+            <ul class="slider__track" data-slider-track>
+
+                <li class="slider__slide slide is-active" data-slider-slide data-title="ПК клуб" data-href="pc.html">
+                    <figure class="slide__media">
+                        <img class="slide__image" src="images/slides/slide-01.png" alt="Кадр: ПК клуб" loading="lazy" draggable="false" />
+                    </figure>
+                    <a class="slide__overlay" href="pc.html" aria-label="Подробнее о ПК клубе">
+                        <span class="slide__overlay-label">Подробнее</span>
+                        <svg class="slide__overlay-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M1 8h12.5M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="slide__meta">
+                        <span class="slide__index">01</span>
+                        <span class="slide__label">ПК клуб</span>
+                    </div>
+                </li>
+
+                <li class="slider__slide slide" data-slider-slide data-title="Кухня" data-href="kitchen.html">
+                    <figure class="slide__media">
+                        <img class="slide__image" src="images/slides/slide-02.png" alt="Кадр: Кухня" loading="lazy" draggable="false" />
+                    </figure>
+                    <a class="slide__overlay" href="kitchen.html" aria-label="Подробнее о кухне">
+                        <span class="slide__overlay-label">Подробнее</span>
+                        <svg class="slide__overlay-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M1 8h12.5M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="slide__meta">
+                        <span class="slide__index">02</span>
+                        <span class="slide__label">Кухня</span>
+                    </div>
+                </li>
+
+                <li class="slider__slide slide" data-slider-slide data-title="Лаунж" data-href="lounge.html">
+                    <figure class="slide__media">
+                        <img class="slide__image" src="images/slides/slide-03.png" alt="Кадр: Лаунж" loading="lazy" draggable="false" />
+                    </figure>
+                    <a class="slide__overlay" href="lounge.html" aria-label="Подробнее о лаунже">
+                        <span class="slide__overlay-label">Подробнее</span>
+                        <svg class="slide__overlay-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M1 8h12.5M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="slide__meta">
+                        <span class="slide__index">03</span>
+                        <span class="slide__label">Лаунж</span>
+                    </div>
+                </li>
+
+                <li class="slider__slide slide" data-slider-slide data-title="Бар" data-href="bar.html">
+                    <figure class="slide__media">
+                        <img class="slide__image" src="images/slides/slide-04.png" alt="Кадр: Бар" loading="lazy" draggable="false" />
+                    </figure>
+                    <a class="slide__overlay" href="bar.html" aria-label="Подробнее о баре">
+                        <span class="slide__overlay-label">Подробнее</span>
+                        <svg class="slide__overlay-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M1 8h12.5M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="slide__meta">
+                        <span class="slide__index">04</span>
+                        <span class="slide__label">Бар</span>
+                    </div>
+                </li>
+
+                <li class="slider__slide slide" data-slider-slide data-title="Турниры" data-href="tournament.html">
+                    <figure class="slide__media">
+                        <img class="slide__image" src="images/slides/slide-05.png" alt="Кадр: Турниры" loading="lazy" draggable="false" />
+                    </figure>
+                    <a class="slide__overlay" href="tournament.html" aria-label="Подробнее о турнирах">
+                        <span class="slide__overlay-label">Подробнее</span>
+                        <svg class="slide__overlay-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M1 8h12.5M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="slide__meta">
+                        <span class="slide__index">05</span>
+                        <span class="slide__label">Турниры</span>
+                    </div>
+                </li>
+
+                <li class="slider__slide slide" data-slider-slide data-title="Интерактив" data-href="interactive.html">
+                    <figure class="slide__media">
+                        <img class="slide__image" src="images/slides/slide-06.png" alt="Кадр: Интерактив" loading="lazy" draggable="false" />
+                    </figure>
+                    <a class="slide__overlay" href="interactive.html" aria-label="Подробнее об интерактиве">
+                        <span class="slide__overlay-label">Подробнее</span>
+                        <svg class="slide__overlay-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M1 8h12.5M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="slide__meta">
+                        <span class="slide__index">06</span>
+                        <span class="slide__label">Интерактив</span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- Крупный заголовок слева от активного слайда -->
+        <div class="slider__caption">
+            <div class="slider__caption-inner" data-slider-caption>
+                <span class="slider__counter" data-slider-counter>01 / 06</span>
+                <h1 class="slider__title" aria-live="polite">ПК клуб</h1>
+            </div>
+        </div>
+
+        <!-- Навигация справа: цифры + мини-слайдер заголовков -->
+        <aside class="slider__aside">
+            <div class="side-nav">
+                <ol class="side-nav__numbers" data-nav-numbers></ol>
+                <div class="side-nav__titles" data-nav-titles>
+                    <div class="side-nav__titles-track" data-nav-titles-track></div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="slider__hint" aria-hidden="true">
+            <span class="slider__hint-line"></span>
+            <span class="slider__hint-text">Листайте</span>
+        </div>
+    </main>
+</div>
+<div class="page-transition" data-page-transition aria-hidden="true">
+    <div class="page-transition__panel" data-pt-panel></div>
+    <div class="page-transition__label" data-pt-label></div>
+</div>
+<script type="module" src="scripts/main.js"></script>
+</body>
+</html>

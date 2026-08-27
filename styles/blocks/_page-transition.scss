@@ -1,0 +1,72 @@
+@use '../helpers' as *;
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 200; /* выше лоадера (100) и интро-прицела (101) */
+  visibility: hidden;
+  pointer-events: none;
+
+  &--no-anim &__panel {
+    transition: none;
+  }
+
+  &--no-anim &__char-inner {
+    transition: none;
+  }
+
+  &.is-active {
+    visibility: visible;
+    pointer-events: auto; /* блокируем клики на время анимации */
+  }
+
+  /* Плита, выезжающая со случайной стороны */
+  &__panel {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-dark-5);
+    transform: translateX(-100%);
+    transition: transform 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: transform;
+  }
+
+  &--from-left &__panel { transform: translateX(-100%); }
+  &--from-right &__panel { transform: translateX(100%); }
+
+  &.is-panel-in &__panel { transform: translateX(0); }
+
+  /* Надпись по центру */
+  &__label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-light-10);
+    @include fluid-text(72, 32);
+  }
+
+  /* Одна буква в маске */
+  &__char {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    line-height: 1;
+  }
+
+  &__char-inner {
+    display: inline-block;
+    transform: translateY(115%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  &.is-label-open &__char-inner {
+    transform: translateY(0);
+  }
+}

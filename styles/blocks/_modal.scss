@@ -1,0 +1,157 @@
+@use '../helpers' as *;
+
+html.is-modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--container-padding-x);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s;
+
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(9, 9, 9, 0.82);
+    backdrop-filter: blur(6px);
+  }
+}
+
+.modal-window {
+  position: relative;
+  z-index: 1;
+  width: min(100%, #{rem(880)});
+  max-height: min(90dvh, #{rem(720)});
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--color-dark-25);
+  background-color: var(--color-dark-10);
+  transform: translateY(rem(24)) scale(0.98);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-dark-30) transparent;
+
+  .modal.is-open & {
+    transform: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: rem(14);
+    right: rem(14);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(40);
+    height: rem(40);
+    border: 1px solid var(--color-dark-30);
+    background-color: var(--color-dark-5);
+    color: var(--color-light-10);
+    cursor: pointer;
+    transition: border-color var(--transition-duration), color var(--transition-duration);
+
+    @include hover() {
+      color: var(--color-light-10);
+      border-color: var(--color-light-35);
+    }
+  }
+
+  &__media {
+    position: relative;
+    min-height: rem(320);
+    background-color: var(--color-dark-15);
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+    padding: rem(32);
+  }
+
+  &__name {
+    margin: 0;
+    @include fluid-text(34, 24);
+  }
+
+  &__description {
+    margin: 0;
+    font-size: rem(14);
+    line-height: 1.6;
+    color: var(--color-light-30);
+  }
+
+  &__composition {
+    margin: 0;
+    font-size: rem(13);
+    line-height: 1.6;
+    color: var(--color-light-40);
+  }
+
+  &__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(18);
+    font-size: rem(13);
+    letter-spacing: 0.06em;
+    color: var(--color-light-35);
+  }
+
+  &__footer {
+    margin-top: auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: rem(16);
+    padding-top: rem(16);
+    border-top: 1px solid var(--color-dark-25);
+  }
+
+  &__weight {
+    font-size: rem(13);
+    letter-spacing: 0.08em;
+    color: var(--color-light-40);
+  }
+
+  &__price {
+    font-family: var(--font-family-accent);
+    font-size: rem(22);
+    font-weight: 700;
+    color: var(--color-light-10);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+
+    &__media {
+      min-height: rem(220);
+    }
+
+    &__body {
+      padding: rem(24);
+    }
+  }
+}

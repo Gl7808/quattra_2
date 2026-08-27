@@ -1,0 +1,25 @@
+@use "normalize";
+@use "fonts";
+@use "variables";
+@use "utils";
+@use "globals";
+@use 'helpers' as *;
+
+@import
+"blocks/page",
+"blocks/header",
+"blocks/social",
+"blocks/slider",
+"blocks/slide",
+"blocks/crosshair",
+"blocks/tabs",
+"blocks/preview",
+"blocks/menu",
+"blocks/menu-full",
+"blocks/modal",
+"blocks/menu-list",
+"blocks/loader",
+"blocks/page-transition",
+"blocks/slider-bg",
+"blocks/side-nav"
+;

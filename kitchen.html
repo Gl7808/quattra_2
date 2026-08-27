@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quattra — Кухня</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+<div class="page">
+
+    <!-- Фон активного блюда -->
+    <div class="slider-bg slider-bg--faint slider-bg--fixed" data-menu-bg aria-hidden="true">
+        <img class="slider-bg__layer" data-bg-layer alt="" />
+        <img class="slider-bg__layer" data-bg-layer alt="" />
+    </div>
+
+    <header class="header">
+        <a class="header__logo" href="index.html">Quattra</a>
+
+        <nav class="header__nav" aria-label="Основная навигация">
+            <ul class="header__nav-list">
+                <li class="header__nav-item"><a class="header__nav-link" href="index.html">Cyber</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="kitchen.html" aria-current="page">Kitchen</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="lounge.html">Lounge</a></li>
+            </ul>
+        </nav>
+
+        <ul class="header__social social">
+            <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+        </ul>
+    </header>
+
+    <main class="menu" data-menu>
+        <div class="menu__head">
+            <span class="menu__overline">Меню</span>
+            <h1 class="menu__title">Кухня</h1>
+        </div>
+
+        <!-- Переключатель разделов -->
+        <nav class="menu__tabs tabs" data-menu-tabs aria-label="Разделы меню"></nav>
+
+        <!-- Сцена: контент уезжает/въезжает при смене раздела -->
+        <div class="menu__stage">
+            <div class="menu__content" data-menu-content>
+
+                <!-- Текст: список блюд слева -->
+                <ul class="menu__list menu-list" data-menu-list></ul>
+
+                <!-- Фото: вертикальный слайдер справа -->
+                <div class="preview" data-menu-preview>
+                    <div class="preview__track preview__track--instant" data-preview-track></div>
+                    <div class="preview__frame" data-preview-frame aria-hidden="true">
+                        <span class="preview__frame-line preview__frame-line--top"></span>
+                        <span class="preview__frame-line preview__frame-line--bottom"></span>
+                        <span class="preview__frame-corner preview__frame-corner--tl"></span>
+                        <span class="preview__frame-corner preview__frame-corner--tr"></span>
+                        <span class="preview__frame-corner preview__frame-corner--bl"></span>
+                        <span class="preview__frame-corner preview__frame-corner--br"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="menu__full menu-full" data-menu-full></div>
+    </main>
+
+    <!-- Модальное окно блюда -->
+    <div class="modal" data-modal aria-hidden="true">
+        <div class="modal__overlay" data-modal-close></div>
+        <div class="modal-window" role="dialog" aria-modal="true">
+            <button class="modal-window__close" type="button" data-modal-close aria-label="Закрыть">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <div class="modal-window__media" data-modal-media>
+                <img class="modal-window__image" data-modal-image alt="" />
+            </div>
+
+            <div class="modal-window__body">
+                <h2 class="modal-window__name" data-modal-name></h2>
+                <p class="modal-window__description" data-modal-description></p>
+                <p class="modal-window__composition" data-modal-composition></p>
+
+                <div class="modal-window__facts" data-modal-facts>
+                    <span class="modal-window__fact" data-modal-calories></span>
+                    <span class="modal-window__fact" data-modal-bju></span>
+                </div>
+
+                <div class="modal-window__footer">
+                    <span class="modal-window__weight" data-modal-weight></span>
+                    <span class="modal-window__price" data-modal-price></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-transition" data-page-transition aria-hidden="true">
+    <div class="page-transition__panel" data-pt-panel></div>
+    <div class="page-transition__label" data-pt-label></div>
+</div>
+<script type="module" src="scripts/kitchen.js"></script>
+</body>
+</html>
