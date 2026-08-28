@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quattra — ПК клуб</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+<div class="page">
+
+    <header class="header">
+        <button class="burger" type="button" data-burger aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+
+        <a class="header__logo" href="index.html">Quattra</a>
+
+        <ul class="header__social social">
+            <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+        </ul>
+    </header>
+
+    <!-- Полноэкранное меню -->
+    <div class="fullscreen-nav" id="site-menu" data-fullscreen-nav aria-hidden="true">
+        <div class="fullscreen-nav__inner">
+            <nav class="fullscreen-nav__menu" aria-label="Основное меню">
+                <ul class="fullscreen-nav__list">
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="index.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Главная</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Главная</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="pc.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Игровая</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Игровая</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="kitchen.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Кухня</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Кухня</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="lounge.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Лаунж</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Лаунж</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="bar.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Бар</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Бар</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="interactive.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Интерактив</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Интерактив</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="kitchen.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Контакты</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Контакты</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="fullscreen-nav__footer">
+                <div class="fullscreen-nav__contacts">
+                    <a class="fullscreen-nav__phone" href="tel:+79268194444">+7 926 819 4444</a>
+                    <span class="fullscreen-nav__address">г. Йошкар-Ола, ул. Строителей, 96к</span>
+                </div>
+                <ul class="fullscreen-nav__social social">
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- ЭКРАН 1: полноэкранный слайдер -->
+        <section class="club-hero" data-club-hero>
+            <div class="club-hero__track" data-hero-track>
+
+                <!-- Слайд 1: видео + глитч-заголовок -->
+                <div class="club-hero__slide" data-hero-slide>
+                    <div class="club-hero__media">
+                        <video autoplay muted loop playsinline preload="metadata" poster="images/club/slide-01-poster.jpg">
+                            <source src="images/club/hero-video.mp4" type="video/mp4" />
+                        </video>
+                        <div class="club-hero__dim"></div>
+                    </div>
+
+                    <div class="club-hero__content club-hero__content--center">
+                        <div class="hero-title" data-hero-title data-glitch-interval="5000" data-glitch-duration="900">
+                            <span class="hero-title__corner hero-title__corner--tl"></span>
+                            <span class="hero-title__corner hero-title__corner--tr"></span>
+                            <span class="hero-title__corner hero-title__corner--bl"></span>
+                            <span class="hero-title__corner hero-title__corner--br"></span>
+                            <h1 class="hero-title__text" data-glitch-text
+                                data-original="Игровая резиденция"
+                                data-glitch-alt="QUATTRA"
+                                data-text="Игровая резиденция">Игровая резиденция</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Слайд 2: фон + текст слева + миниатюры справа -->
+                <div class="club-hero__slide " data-hero-slide>
+                    <div class="club-hero__media ">
+                        <img src="images/club/slide-02.jpg" alt="" loading="lazy" />
+                        <div class="club-hero__dim"></div>
+                    </div>
+
+                    <div class="club-hero__content club-hero__content--split">
+                        <div class="club-hero__about ">
+                            <h2 class="club-hero__about-title">Твоя территория победы</h2>
+                            <p class="club-hero__about-text">
+                                Quattra Cyber — это топовое железо, атмосфера и комьюнити.
+                                Играй, тренируйся и побеждай на машинах, собранных для киберспорта.
+                            </p>
+                        </div>
+
+                        <div class="club-hero__gallery">
+                            <button class="club-hero__thumb" type="button" data-lightbox-open data-full="images/club/full-01.jpg">
+                                <img src="images/club/mini-01.jpg" alt="Игровая зона" loading="lazy" />
+                            </button>
+                            <button class="club-hero__thumb" type="button" data-lightbox-open data-full="images/club/full-02.jpg">
+                                <img src="images/club/mini-02.jpg" alt="Зал клуба" loading="lazy" />
+                            </button>
+                            <button class="club-hero__thumb" type="button" data-lightbox-open data-full="images/club/full-03.jpg">
+                                <img src="images/club/mini-03.jpg" alt="Рабочее место" loading="lazy" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="club-hero__nav">
+                <button class="club-hero__arrow club-hero__arrow--prev" type="button" data-hero-prev aria-label="Предыдущий слайд">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                        <path d="M12 3L6 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="club-hero__dots" data-hero-dots></div>
+                <button class="club-hero__arrow club-hero__arrow--next" type="button" data-hero-next aria-label="Следующий слайд">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                        <path d="M6 3l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 2: характеристики -->
+        <section class="club-specs">
+            <div class="container">
+                <h2 class="club-specs__title">Характеристики</h2>
+                <ul class="club-specs__list">
+                    <li class="club-specs__item">
+                        <span class="club-specs__index">01</span>
+                        <span class="club-specs__label">Процессор</span>
+                        <span class="club-specs__value">AMD Ryzen 7 9800X3D OEM</span>
+                    </li>
+                    <li class="club-specs__item">
+                        <span class="club-specs__index">02</span>
+                        <span class="club-specs__label">Материнская плата</span>
+                        <span class="club-specs__value">MSI X870 GAMING PLUS WIFI</span>
+                    </li>
+                    <li class="club-specs__item">
+                        <span class="club-specs__index">03</span>
+                        <span class="club-specs__label">Видеокарта</span>
+                        <span class="club-specs__value">Palit GeForce RTX 5070 Ti GameRock</span>
+                    </li>
+                    <li class="club-specs__item">
+                        <span class="club-specs__index">04</span>
+                        <span class="club-specs__label">Оперативная память</span>
+                        <span class="club-specs__value">G.Skill Trident Z5 RGB 32gb</span>
+                    </li>
+                    <li class="club-specs__item">
+                        <span class="club-specs__index">05</span>
+                        <span class="club-specs__label">Накопитель</span>
+                        <span class="club-specs__value">1000 ГБ M.2 NVMe Kingston FURY Renegade</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 3: периферия -->
+        <section class="club-screen">
+            <div class="club-screen__bg">
+                <img src="images/club/monitor.jpg" alt="" loading="lazy" />
+                <div class="club-screen__dim"></div>
+            </div>
+            <div class="container club-screen__inner">
+                <div class="club-screen__text">
+                    <h2 class="club-screen__title">Экран</h2>
+                    <p class="club-screen__subtitle">360 Гц · 2560 × 1440</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Мышка -->
+        <section class="periph" data-periph>
+            <div class="container">
+                <div class="periph__head">
+                    <h3 class="periph__title">Мышка</h3>
+                    <div class="periph__controls">
+                        <span class="periph__counter" data-periph-counter>01 / 04</span>
+                        <button class="periph__arrow" type="button" data-periph-prev aria-label="Предыдущая модель">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                                <path d="M12 3L6 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="periph__arrow" type="button" data-periph-next aria-label="Следующая модель">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                                <path d="M6 3l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="periph__viewport">
+                    <div class="periph__track" data-periph-track>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/mouse-01.jpg" alt="Logitech G Pro X Superlight 2" loading="lazy" />
+                            <span class="periph__model">Logitech G Pro X Superlight 2</span>
+                        </div>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/mouse-02.jpg" alt="Razer DeathAdder V3 Pro" loading="lazy" />
+                            <span class="periph__model">Razer DeathAdder V3 Pro</span>
+                        </div>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/mouse-03.jpg" alt="Zowie EC2-CW" loading="lazy" />
+                            <span class="periph__model">Zowie EC2-CW</span>
+                        </div>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/mouse-04.jpg" alt="Finalmouse UltralightX" loading="lazy" />
+                            <span class="periph__model">Finalmouse UltralightX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Клавиатура -->
+        <section class="periph" data-periph>
+            <div class="container">
+                <div class="periph__head">
+                    <h3 class="periph__title">Клавиатура</h3>
+                    <div class="periph__controls">
+                        <span class="periph__counter" data-periph-counter>01 / 04</span>
+                        <button class="periph__arrow" type="button" data-periph-prev aria-label="Предыдущая модель">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                                <path d="M12 3L6 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="periph__arrow" type="button" data-periph-next aria-label="Следующая модель">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                                <path d="M6 3l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="periph__viewport">
+                    <div class="periph__track" data-periph-track>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/keyboard-01.jpg" alt="Wooting 60HE" loading="lazy" />
+                            <span class="periph__model">Wooting 60HE</span>
+                        </div>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/keyboard-02.jpg" alt="Razer Huntsman V3 Pro" loading="lazy" />
+                            <span class="periph__model">Razer Huntsman V3 Pro</span>
+                        </div>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/keyboard-03.jpg" alt="SteelSeries Apex Pro TKL" loading="lazy" />
+                            <span class="periph__model">SteelSeries Apex Pro TKL</span>
+                        </div>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/keyboard-04.jpg" alt="Logitech G Pro X TKL" loading="lazy" />
+                            <span class="periph__model">Logitech G Pro X TKL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Наушники -->
+        <section class="periph" data-periph>
+            <div class="container">
+                <div class="periph__head">
+                    <h3 class="periph__title">Наушники</h3>
+                    <div class="periph__controls">
+                        <span class="periph__counter" data-periph-counter>01 / 04</span>
+                        <button class="periph__arrow" type="button" data-periph-prev aria-label="Предыдущая модель">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                                <path d="M12 3L6 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="periph__arrow" type="button" data-periph-next aria-label="Следующая модель">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                                <path d="M6 3l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="periph__viewport">
+                    <div class="periph__track" data-periph-track>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/headset-01.jpg" alt="HyperX Cloud III Wireless" loading="lazy" />
+                            <span class="periph__model">HyperX Cloud III Wireless</span>
+                        </div>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/headset-02.jpg" alt="Logitech G Pro X 2 Lightspeed" loading="lazy" />
+                            <span class="periph__model">Logitech G Pro X 2 Lightspeed</span>
+                        </div>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/headset-03.jpg" alt="SteelSeries Arctis Nova Pro Wireless" loading="lazy" />
+                            <span class="periph__model">SteelSeries Arctis Nova Pro Wireless</span>
+                        </div>
+                        <div class="periph__slide" data-periph-slide>
+                            <img class="periph__image" src="images/club/headset-04.jpg" alt="Razer BlackShark V2 Pro" loading="lazy" />
+                            <span class="periph__model">Razer BlackShark V2 Pro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Лайтбокс -->
+    <div class="lightbox" data-lightbox aria-hidden="true">
+        <div class="lightbox__overlay" data-lightbox-close></div>
+        <button class="lightbox__close" type="button" data-lightbox-close aria-label="Закрыть">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <img class="lightbox__image" data-lightbox-image alt="" />
+    </div>
+
+</div>
+
+<!-- Оверлей перехода по ссылкам -->
+<div class="page-transition" data-page-transition aria-hidden="true">
+    <div class="page-transition__panel" data-pt-panel></div>
+    <div class="page-transition__label" data-pt-label></div>
+</div>
+
+<script type="module" src="scripts/pc.js"></script>
+</body>
+</html>

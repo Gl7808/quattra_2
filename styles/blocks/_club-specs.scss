@@ -1,0 +1,56 @@
+@use '../helpers' as *;
+
+.club-specs {
+  padding: rem(90) 0 rem(110);
+
+  &__title {
+    margin: 0 0 rem(40);
+    @include fluid-text(48, 30);
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(#{rem(280)}, 1fr));
+    gap: rem(20);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: rem(14);
+    padding: rem(24);
+    border: 1px solid var(--color-dark-25);
+    background-color: var(--color-dark-12);
+    transition: border-color var(--transition-duration), transform var(--transition-duration);
+
+    @include hover() {
+      border-color: var(--color-dark-35);
+      transform: translateY(-3px);
+    }
+  }
+
+  &__index {
+    font-family: var(--font-family-accent);
+    font-size: rem(13);
+    letter-spacing: 0.2em;
+    color: var(--color-light-40);
+  }
+
+  &__label {
+    font-size: rem(12);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-light-35);
+  }
+
+  &__value {
+    font-family: var(--font-family-accent);
+    font-weight: 600;
+    font-size: rem(16);
+    line-height: 1.4;
+    color: var(--color-light-10);
+  }
+}

@@ -1,0 +1,120 @@
+@use '../helpers' as *;
+
+.periph {
+  padding: rem(70) 0;
+  border-top: 1px solid var(--color-dark-15);
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(20);
+    margin-bottom: rem(36);
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(40, 26);
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+  }
+
+  &__counter {
+    font-family: var(--font-family-accent);
+    font-size: rem(14);
+    letter-spacing: 0.16em;
+    color: var(--color-light-40);
+  }
+
+  &__arrow {
+    width: rem(46);
+    height: rem(46);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-dark-30);
+    background: none;
+    color: var(--color-light-10);
+    cursor: pointer;
+    transition: border-color var(--transition-duration), background-color var(--transition-duration);
+
+    @include hover() {
+      border-color: var(--color-light-35);
+      background-color: var(--color-dark-15);
+    }
+  }
+
+  &__viewport {
+    overflow: hidden;
+    cursor: grab;
+    /* вертикальный скролл страницы оставляем, горизонталь отдаём драгу */
+    touch-action: pan-y;
+    /* мягкое затухание соседей у краёв */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  }
+
+  &.is-dragging &__viewport {
+    cursor: grabbing;
+  }
+
+  &__track {
+    display: flex;
+    gap: rem(24);
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+
+    &--instant {
+      transition: none;
+    }
+  }
+
+  &__slide {
+    flex: 0 0 auto;
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(24);
+    padding: rem(16) 0 rem(8);
+    opacity: 0.3;
+    transform: scale(0.88);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    user-select: none;
+
+    &.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @include mobile {
+      width: 74%;
+    }
+  }
+
+  &__image {
+    display: block;
+    height: rem(300);
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+    pointer-events: none;
+
+    @include mobile {
+      height: rem(210);
+    }
+  }
+
+  &__model {
+    font-family: var(--font-family-accent);
+    font-weight: 600;
+    font-size: rem(18);
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: var(--color-light-10);
+  }
+}

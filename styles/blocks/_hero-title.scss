@@ -1,0 +1,96 @@
+@use '../helpers' as *;
+
+.hero-title {
+  position: relative;
+  display: inline-block;
+  padding: rem(36) rem(56);
+  text-align: center;
+
+  @include mobile {
+    padding: rem(26) rem(24);
+  }
+
+  &__corner {
+    position: absolute;
+    width: rem(34);
+    height: rem(34);
+    border: 0 solid var(--color-light-10);
+    pointer-events: none;
+    animation: corner-breathe 2.4s ease-in-out infinite;
+
+    @include mobile {
+      width: rem(24);
+      height: rem(24);
+    }
+  }
+
+  &__corner--tl { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; --cx: -7px; --cy: -7px; }
+  &__corner--tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; --cx: 7px; --cy: -7px; }
+  &__corner--bl { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; --cx: -7px; --cy: 7px; }
+  &__corner--br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; --cx: 7px; --cy: 7px; }
+
+  &__text {
+    position: relative;
+    margin: 0;
+    line-height: 1.02;
+    @include fluid-text(88, 40);
+  }
+
+  /* Глитч: цветные копии + рваные срезы */
+  &.is-glitching &__text {
+    animation: glitch-shake 0.9s steps(2, end) both;
+
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    &::before {
+      color: var(--color-game-accent);
+      z-index: -1;
+      animation: glitch-shift-a 0.9s steps(1, end) both;
+    }
+
+    &::after {
+      color: var(--color-accent);
+      z-index: -2;
+      animation: glitch-shift-b 0.9s steps(1, end) both;
+    }
+  }
+}
+
+@keyframes corner-breathe {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(var(--cx, 0), var(--cy, 0)); }
+}
+
+@keyframes glitch-shake {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 2px); }
+  60% { transform: translate(2px, 1px); }
+  80% { transform: translate(-1px, -1px); }
+}
+
+@keyframes glitch-shift-a {
+  0%   { transform: translate(-5px, -3px); clip-path: inset(10% 0 60% 0); }
+  20%  { transform: translate(4px, 2px);   clip-path: inset(60% 0 15% 0); }
+  40%  { transform: translate(-4px, 3px);  clip-path: inset(30% 0 45% 0); }
+  60%  { transform: translate(5px, -2px);  clip-path: inset(70% 0 8% 0); }
+  80%  { transform: translate(-3px, 2px);  clip-path: inset(20% 0 55% 0); }
+  100% { transform: translate(3px, -3px);  clip-path: inset(45% 0 30% 0); }
+}
+
+@keyframes glitch-shift-b {
+  0%   { transform: translate(5px, 3px);   clip-path: inset(50% 0 20% 0); }
+  20%  { transform: translate(-4px, -2px); clip-path: inset(15% 0 65% 0); }
+  40%  { transform: translate(4px, -3px);  clip-path: inset(65% 0 10% 0); }
+  60%  { transform: translate(-5px, 2px);  clip-path: inset(25% 0 50% 0); }
+  80%  { transform: translate(3px, -2px);  clip-path: inset(55% 0 25% 0); }
+  100% { transform: translate(-3px, 3px);  clip-path: inset(5% 0 75% 0); }
+}

@@ -1,0 +1,67 @@
+@use '../helpers' as *;
+
+html.is-lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--container-padding-x);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s;
+
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(9, 9, 9, 0.88);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  &__close {
+    position: absolute;
+    top: rem(20);
+    right: rem(20);
+    z-index: 2;
+    width: rem(44);
+    height: rem(44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-dark-30);
+    background-color: var(--color-dark-5);
+    color: var(--color-light-10);
+    cursor: pointer;
+    transition: border-color var(--transition-duration);
+
+    @include hover() {
+      border-color: var(--color-light-35);
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    max-width: min(100%, #{rem(1000)});
+    max-height: 85dvh;
+    object-fit: contain;
+    border: 1px solid var(--color-dark-25);
+    transform: scale(0.96);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &.is-open &__image {
+    transform: scale(1);
+  }
+}

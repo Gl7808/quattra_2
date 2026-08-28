@@ -16,15 +16,12 @@
     </div>
 
     <header class="header">
-        <a class="header__logo" href="index.html">Quattra</a>
+        <button class="burger" type="button" data-burger aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
 
-        <nav class="header__nav" aria-label="Основная навигация">
-            <ul class="header__nav-list">
-                <li class="header__nav-item"><a class="header__nav-link" href="index.html">Cyber</a></li>
-                <li class="header__nav-item"><a class="header__nav-link" href="kitchen.html" aria-current="page">Kitchen</a></li>
-                <li class="header__nav-item"><a class="header__nav-link" href="lounge.html">Lounge</a></li>
-            </ul>
-        </nav>
+        <a class="header__logo" href="index.html">Quattra</a>
 
         <ul class="header__social social">
             <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
@@ -32,6 +29,82 @@
             <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
         </ul>
     </header>
+    <div class="fullscreen-nav" id="site-menu" data-fullscreen-nav aria-hidden="true">
+        <div class="fullscreen-nav__inner">
+            <nav class="fullscreen-nav__menu" aria-label="Основное меню">
+                <ul class="fullscreen-nav__list">
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="index.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Главная</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Главная</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="pc.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Игровая</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Игровая</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="kitchen.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Кухня</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Кухня</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="lounge.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Лаунж</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Лаунж</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="bar.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Бар</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Бар</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="interactive.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Интерактив</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Интерактив</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="kitchen.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Контакты</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Контакты</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="fullscreen-nav__footer">
+                <div class="fullscreen-nav__contacts">
+                    <a class="fullscreen-nav__phone" href="tel:+79268194444">+7 926 819 4444</a>
+                    <span class="fullscreen-nav__address">г. Йошкар-Ола, ул. Строителей, 96к</span>
+                </div>
+                <ul class="fullscreen-nav__social social">
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <main class="menu" data-menu>
         <div class="menu__head">

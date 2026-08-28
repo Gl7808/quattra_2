@@ -28,7 +28,11 @@ export function createPageTransition(root) {
         const aria = link.getAttribute('aria-label');
         if (aria?.trim()) return aria.trim();
 
-        return link.textContent.trim();
+        /* Текст ссылки без декоративных дублей (например, второе слово в «ролле»
+           помечено aria-hidden) и с нормализацией пробелов */
+        const clone = link.cloneNode(true);
+        clone.querySelectorAll('[aria-hidden="true"]').forEach((node) => node.remove());
+        return clone.textContent.replace(/\s+/g, ' ').trim();
     }
 
     function buildChars(text) {

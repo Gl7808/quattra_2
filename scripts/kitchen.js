@@ -3,6 +3,7 @@ import { createPreviewSlider } from './modules/preview-slider.js';
 import { createMenu } from './modules/menu.js';
 import { createModal } from './modules/modal.js';
 import { createPageTransition } from './modules/page-transition.js';
+import { createBurgerMenu } from './modules/burger-menu.js';
 
 const menuRoot = document.querySelector('[data-menu]');
 const previewRoot = document.querySelector('[data-menu-preview]');
@@ -16,6 +17,9 @@ pageTransition?.init();
 const background = createCrossfade(bgRoot, '[data-bg-layer]');
 const preview = createPreviewSlider(previewRoot);
 const modal = createModal(modalRoot);
+const burgerButton = document.querySelector('[data-burger]');
+const fullscreenNavRoot = document.querySelector('[data-fullscreen-nav]');
+createBurgerMenu(burgerButton, fullscreenNavRoot);
 
 function setField(node, text) {
     if (!node) return;

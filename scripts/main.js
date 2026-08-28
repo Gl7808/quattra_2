@@ -3,6 +3,7 @@ import { createCrosshair } from './modules/crosshair.js';
 import { createLoader } from './modules/loader.js';
 import { createPageTransition } from './modules/page-transition.js';
 import { createSliderBg } from './modules/slider-bg.js';
+import { createBurgerMenu } from './modules/burger-menu.js';
 
 const loaderRoot = document.querySelector('[data-loader]');
 const sliderRoot = document.querySelector('[data-slider]');
@@ -12,6 +13,10 @@ const sliderBgRoot = document.querySelector('[data-slider-bg]');
 
 const pageTransition = ptRoot ? createPageTransition(ptRoot) : null;
 pageTransition?.init();
+
+const burgerButton = document.querySelector('[data-burger]');
+const fullscreenNavRoot = document.querySelector('[data-fullscreen-nav]');
+createBurgerMenu(burgerButton, fullscreenNavRoot);
 
 async function bootstrap() {
     let slider = null;

@@ -1,0 +1,133 @@
+@use '../helpers' as *;
+
+.fullscreen-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  background-color: rgba(9, 9, 9, 0.94);
+  -webkit-backdrop-filter: blur(rem(10));
+  backdrop-filter: blur(rem(10));
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.45s ease, visibility 0.45s;
+
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__inner {
+    width: 100%;
+    max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+    margin-inline: auto;
+    padding: rem(140) var(--container-padding-x) rem(50);
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+      padding-top: rem(110);
+      padding-bottom: rem(30);
+    }
+  }
+
+  &__list {
+    margin: auto 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: rem(14);
+  }
+
+  /* Пункты появляются каскадом */
+  &__item {
+    opacity: 0;
+    transform: translateY(rem(36));
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &.is-open &__item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @for $i from 1 through 6 {
+    &.is-open &__item:nth-child(#{$i}) {
+      transition-delay: #{0.08 + ($i - 1) * 0.07}s;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    color: var(--color-light-10);
+    @include fluid-text(45, 34);
+
+    @include hover() {
+      color: var(--color-light-10);
+    }
+  }
+
+  /* Эффект «прокрутки»: слово уезжает вверх, снизу выезжает такое же */
+  &__roll {
+    display: block;
+    height: 1.05em;
+    overflow: hidden;
+  }
+
+  &__word {
+    display: block;
+    height: 1.05em;
+    transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  &__link:hover &__word,
+  &__link:focus-visible &__word {
+    transform: translateY(-100%);
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: rem(30);
+    flex-wrap: wrap;
+    padding-top: rem(30);
+    border-top: 1px solid var(--color-dark-25);
+    opacity: 0;
+    transform: translateY(rem(20));
+    transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+  }
+
+  &.is-open &__footer {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8);
+  }
+
+  &__phone {
+    font-family: var(--font-family-accent);
+    font-size: rem(20);
+    font-weight: 600;
+    color: var(--color-light-10);
+
+    @include hover() {
+      color: var(--color-light-10);
+    }
+  }
+
+  &__address {
+    font-size: rem(14);
+    color: var(--color-light-35);
+  }
+}
