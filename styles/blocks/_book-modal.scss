@@ -1,0 +1,120 @@
+@use '../helpers' as *;
+
+html.is-modal-open {
+  overflow: hidden;
+}
+
+.book-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--container-padding-x);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s;
+
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(9, 9, 9, 0.85);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  &__window {
+    position: relative;
+    z-index: 1;
+    width: min(100%, #{rem(520)});
+    padding: rem(40);
+    background-color: var(--color-dark-10);
+    border: 1px solid var(--color-dark-25);
+    transform: translateY(rem(20)) scale(0.98);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+    @include mobile {
+      padding: rem(28);
+    }
+  }
+
+  &.is-open &__window {
+    transform: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: rem(16);
+    right: rem(16);
+    width: rem(40);
+    height: rem(40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-dark-30);
+    background-color: var(--color-dark-5);
+    color: var(--color-light-10);
+    cursor: pointer;
+    transition: border-color var(--transition-duration);
+
+    @include hover() {
+      border-color: var(--color-light-35);
+    }
+  }
+
+  &__title {
+    margin: 0 0 rem(16);
+    @include fluid-text(34, 24);
+  }
+
+  &__text {
+    margin: 0 0 rem(28);
+    color: var(--color-light-30);
+    line-height: 1.6;
+    @include fluid-text(17, 14);
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: rem(12);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: rem(16) rem(24);
+    border: 1px solid var(--color-dark-30);
+    font-family: var(--font-family-accent);
+    font-weight: 600;
+    font-size: rem(14);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-light-10);
+    transition: border-color var(--transition-duration), color var(--transition-duration), background-color var(--transition-duration);
+
+    @include hover() {
+      border-color: var(--color-light-35);
+      color: var(--color-light-10);
+    }
+
+    &--primary {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-dark-5);
+
+      @include hover() {
+        background-color: var(--color-accent);
+        border-color: var(--color-accent);
+        color: var(--color-dark-5);
+      }
+    }
+  }
+}

@@ -1,0 +1,199 @@
+@use '../helpers' as *;
+
+.contacts-info {
+  border: 1px solid var(--color-dark-25);
+  background-color: var(--color-dark-10);
+
+  &__row {
+    display: grid;
+  }
+
+  /* Ряд 1: 1fr / 1.5fr / 2fr */
+  &__row--top {
+    grid-template-columns: 1fr 1.5fr 2fr;
+  }
+
+  /* Ряд 2: 2fr / 1fr / 1.5fr */
+  &__row--bottom {
+    grid-template-columns: 2fr 1fr 1.5fr;
+  }
+
+  &__row + &__row {
+    border-top: 1px solid var(--color-dark-25);
+  }
+
+  &__cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: rem(14);
+    padding: rem(34) rem(32);
+  }
+
+  /* вертикальные разделители между ячейками */
+  &__cell + &__cell {
+    border-left: 1px solid var(--color-dark-25);
+  }
+
+  &__label {
+    display: block;
+    font-size: rem(12);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+  }
+
+  /* Крупные значения: телефон, почта */
+  &__value-big {
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-light-10);
+    word-break: break-word;
+    @include fluid-text(32, 22);
+
+    @include hover() {
+      color: var(--color-light-10);
+    }
+  }
+
+  /* Реквизиты: адрес / ИНН / ОГРН */
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: rem(12);
+  }
+
+  &__detail {
+    display: flex;
+    align-items: baseline;
+    gap: rem(14);
+  }
+
+  &__detail-label {
+    flex-shrink: 0;
+    min-width: rem(56);
+    font-size: rem(13);
+    color: var(--color-light-40);
+  }
+
+  &__detail-value {
+    font-size: rem(15);
+    line-height: 1.4;
+    color: var(--color-light-25);
+  }
+
+  /* Бронирование */
+  &__book-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(14);
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.05;
+    color: var(--color-light-10);
+    @include fluid-text(46, 30);
+    transition: color var(--transition-duration);
+
+    @include hover() {
+      color: var(--color-accent);
+    }
+  }
+
+  &__book-arrow {
+    flex-shrink: 0;
+    transition: transform var(--transition-duration);
+  }
+
+  &__book-btn:hover &__book-arrow {
+    transform: translateX(rem(8));
+  }
+
+  &__book-desc {
+    margin: 0;
+    max-width: rem(460);
+    font-size: rem(14);
+    line-height: 1.6;
+    color: var(--color-light-35);
+  }
+
+  /* Время работы */
+  &__hours {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+  }
+
+  &__hours-row {
+    display: flex;
+    justify-content: space-between;
+    gap: rem(12);
+    font-size: rem(16);
+
+    span:first-child {
+      color: var(--color-light-35);
+    }
+
+    span:last-child {
+      font-family: var(--font-family-accent);
+      font-weight: 600;
+      color: var(--color-light-10);
+    }
+  }
+
+  /* Соцсети */
+  &__social {
+    display: flex;
+    gap: rem(10);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: rem(48);
+      height: rem(48);
+      border: 1px solid var(--color-dark-30);
+      background-color: var(--color-dark-15);
+      color: var(--color-light-10);
+      transition:
+              border-color var(--transition-duration),
+              background-color var(--transition-duration),
+              color var(--transition-duration),
+              transform var(--transition-duration);
+
+      @include hover() {
+        border-color: var(--color-accent);
+        background-color: var(--color-accent);
+        color: var(--color-dark-5);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  @include mobile {
+    &__row--top,
+    &__row--bottom {
+      grid-template-columns: 1fr;
+    }
+
+    &__cell {
+      padding: rem(26) rem(20);
+    }
+
+    &__cell + &__cell {
+      border-left: none;
+      border-top: 1px solid var(--color-dark-25);
+    }
+  }
+}

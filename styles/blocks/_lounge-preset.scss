@@ -1,0 +1,205 @@
+@use '../helpers' as *;
+
+.lounge-presets {
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: rem(40);
+    margin-bottom: rem(60);
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: rem(40);
+    }
+
+    .section-head {
+      margin-bottom: 0;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+    flex-shrink: 0;
+  }
+
+  &__counter {
+    font-family: var(--font-family-accent);
+    font-size: rem(14);
+    letter-spacing: 0.16em;
+    color: var(--color-light-40);
+  }
+
+  &__arrow {
+    width: rem(48);
+    height: rem(48);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-dark-30);
+    background-color: var(--color-dark-12);
+    color: var(--color-light-10);
+    cursor: pointer;
+    transition: border-color var(--transition-duration), background-color var(--transition-duration);
+
+    @include hover() {
+      border-color: var(--color-light-35);
+      background-color: var(--color-dark-15);
+    }
+  }
+
+  &__viewport {
+    overflow: hidden;
+    cursor: grab;
+    touch-action: pan-y;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+  }
+
+  &.is-dragging &__viewport {
+    cursor: grabbing;
+  }
+
+  &__track {
+    display: flex;
+    gap: rem(28);
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+
+    &--instant {
+      transition: none;
+    }
+  }
+
+  &__cta {
+    margin-top: rem(60);
+    display: flex;
+    justify-content: center;
+
+    @include mobile {
+      margin-top: rem(40);
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(14);
+    padding: rem(20) rem(48);
+    background-color: var(--color-accent);
+    color: var(--color-dark-5);
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    font-size: rem(15);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+
+    @include hover() {
+      color: var(--color-dark-5);
+      transform: translateY(-3px);
+      box-shadow: 0 rem(10) rem(30) rgba(62, 180, 137, 0.3);
+    }
+  }
+}
+
+.preset-card {
+  flex: 0 0 auto;
+  width: 42%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-dark-25);
+  background-color: var(--color-dark-10);
+  opacity: 0.3;
+  transform: scale(0.94);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color var(--transition-duration);
+  user-select: none;
+
+  &.is-active {
+    opacity: 1;
+    transform: scale(1);
+    border-color: var(--color-dark-35);
+  }
+
+  @include laptop {
+    width: 62%;
+  }
+
+  @include mobile {
+    width: 85%;
+  }
+
+  &__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.6);
+      transition: filter 0.5s ease, transform 0.6s ease;
+    }
+  }
+
+  &.is-active &__media img {
+    filter: grayscale(0);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: rem(14);
+    padding: rem(30) rem(28);
+  }
+
+  &__strength {
+    align-self: flex-start;
+    padding: rem(6) rem(14);
+    font-size: rem(11);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-dark-30);
+    color: var(--color-light-30);
+
+    &--light {
+      color: var(--color-accent);
+      border-color: rgba(62, 180, 137, 0.4);
+    }
+
+    &--medium {
+      color: var(--color-light-20);
+      border-color: var(--color-dark-35);
+    }
+
+    &--strong {
+      color: var(--color-game-accent);
+      border-color: rgba(255, 36, 0, 0.4);
+    }
+  }
+
+  &__name {
+    margin: 0;
+    @include fluid-text(30, 24);
+  }
+
+  &__mix {
+    margin: 0;
+    font-family: var(--font-family-accent);
+    font-size: rem(14);
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: rem(14);
+    line-height: 1.6;
+    color: var(--color-light-35);
+  }
+}

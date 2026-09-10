@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quattra — Каталог табаков</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+<div class="page">
+
+    <header class="header">
+        <button class="burger" type="button" data-burger aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+
+        <a class="header__logo" href="index.html">Quattra</a>
+
+        <ul class="header__social social">
+            <li class="social__item"><a class="social__link" href="https://t.me/quattrapro" target="_blank" aria-label="Telegram">TG</a></li>
+            <li class="social__item"><a class="social__link" href="https://vk.ru/quattrapro" target="_blank" aria-label="ВКонтакте">VK</a></li>
+        </ul>
+    </header>
+
+    <!-- Полноэкранное меню -->
+    <div class="fullscreen-nav" id="site-menu" data-fullscreen-nav aria-hidden="true">
+        <div class="fullscreen-nav__inner">
+            <nav class="fullscreen-nav__menu" aria-label="Основное меню">
+                <ul class="fullscreen-nav__list">
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="index.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Главная</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Главная</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="pc.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Игровая</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Игровая</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="kitchen.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Кухня</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Кухня</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="lounge.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Лаунж</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Лаунж</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="bar.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Бар</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Бар</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="interactive.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Интерактив</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Интерактив</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="contacts.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Контакты</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Контакты</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="fullscreen-nav__footer">
+                <div class="fullscreen-nav__contacts">
+                    <a class="fullscreen-nav__phone" href="tel:+79268194444">+7 926 819 4444</a>
+                    <span class="fullscreen-nav__address">г. Йошкар-Ола, ул. Строителей, 96к</span>
+                </div>
+                <ul class="fullscreen-nav__social social">
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO -->
+        <section class="tobacco-hero">
+            <div class="container tobacco-hero__content">
+                <span class="tobacco-hero__overline">Каталог</span>
+                <h1 class="tobacco-hero__title">Табаки</h1>
+                <p class="tobacco-hero__lead">
+                    Бренды и линейки вкусов, которые держим в наличии.
+                </p>
+            </div>
+            <div class="tobacco-hero__scroll" aria-hidden="true">
+                <span class="tobacco-hero__scroll-line"></span>
+                <span class="tobacco-hero__scroll-text">Листайте</span>
+            </div>
+        </section>
+
+        <!-- КАТАЛОГ: липкая стопка картинок слева + секции-бренды справа -->
+        <section class="tobacco-catalog" data-tobacco-catalog>
+            <div class="tobacco-catalog__left">
+                <div class="tobacco-catalog__sticky">
+                    <span class="tobacco-catalog__side-label">Quattra — Каталог табаков</span>
+
+                    <div class="tobacco-catalog__images">
+                        <img class="tobacco-catalog__image tobacco-catalog__image--base" data-brand-image src="images/tobacco/darkside.jpg" alt="" style="--brand-color: #1c2333;" />
+                        <img class="tobacco-catalog__image" data-brand-image src="images/tobacco/musthave.jpg" alt="" style="--brand-color: #2a1f2e;" />
+                        <img class="tobacco-catalog__image" data-brand-image src="images/tobacco/spectrum.jpg" alt="" style="--brand-color: #17302a;" />
+                        <img class="tobacco-catalog__image" data-brand-image src="images/tobacco/tangiers.jpg" alt="" style="--brand-color: #33291a;" />
+                        <img class="tobacco-catalog__image" data-brand-image src="images/tobacco/burn.jpg" alt="" style="--brand-color: #331c1a;" />
+
+                        <span class="tobacco-catalog__corner tobacco-catalog__corner--tl" aria-hidden="true"></span>
+                        <span class="tobacco-catalog__corner tobacco-catalog__corner--tr" aria-hidden="true"></span>
+                        <span class="tobacco-catalog__corner tobacco-catalog__corner--bl" aria-hidden="true"></span>
+                        <span class="tobacco-catalog__corner tobacco-catalog__corner--br" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="tobacco-catalog__progress">
+                        <span class="tobacco-catalog__progress-line">
+                            <span class="tobacco-catalog__progress-fill" data-progress-fill></span>
+                            <span class="tobacco-catalog__progress-ticks" aria-hidden="true">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </span>
+                        </span>
+                        <span class="tobacco-catalog__progress-count" data-progress-count>01 / 05</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tobacco-catalog__right">
+                <section class="tobacco-section" data-tobacco-section style="--brand-color: #1c2333;">
+                    <div class="tobacco-section__bg" style="background-image: url('images/tobacco/darkside.jpg');" aria-hidden="true"></div>
+                    <img class="tobacco-section__image" src="images/tobacco/darkside.jpg" alt="" loading="lazy" />
+                    <div class="tobacco-section__head">
+                        <span class="tobacco-section__index" aria-hidden="true">01</span>
+                        <h2 class="tobacco-section__title">Darkside</h2>
+                    </div>
+                    <ul class="tobacco-section__flavors">
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Виноград</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">01</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Вишня</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">02</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Мята</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">03</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Груша</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">04</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Цитрус</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">05</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="tobacco-section" data-tobacco-section style="--brand-color: #2a1f2e;">
+                    <div class="tobacco-section__bg" style="background-image: url('images/tobacco/musthave.jpg');" aria-hidden="true"></div>
+                    <img class="tobacco-section__image" src="images/tobacco/musthave.jpg" alt="" loading="lazy" />
+                    <div class="tobacco-section__head">
+                        <span class="tobacco-section__index" aria-hidden="true">02</span>
+                        <h2 class="tobacco-section__title">Must Have</h2>
+                    </div>
+                    <ul class="tobacco-section__flavors">
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Персик</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">01</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Манго</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">02</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Клубника</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">03</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Яблоко</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">04</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Лимонад</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">05</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="tobacco-section" data-tobacco-section style="--brand-color: #17302a;">
+                    <div class="tobacco-section__bg" style="background-image: url('images/tobacco/spectrum.jpg');" aria-hidden="true"></div>
+                    <img class="tobacco-section__image" src="images/tobacco/spectrum.jpg" alt="" loading="lazy" />
+                    <div class="tobacco-section__head">
+                        <span class="tobacco-section__index" aria-hidden="true">03</span>
+                        <h2 class="tobacco-section__title">Spectrum</h2>
+                    </div>
+                    <ul class="tobacco-section__flavors">
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Ананас</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">01</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Маракуйя</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">02</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Арбуз</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">03</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Дыня</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">04</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="tobacco-section" data-tobacco-section style="--brand-color: #33291a;">
+                    <div class="tobacco-section__bg" style="background-image: url('images/tobacco/tangiers.jpg');" aria-hidden="true"></div>
+                    <img class="tobacco-section__image" src="images/tobacco/tangiers.jpg" alt="" loading="lazy" />
+                    <div class="tobacco-section__head">
+                        <span class="tobacco-section__index" aria-hidden="true">04</span>
+                        <h2 class="tobacco-section__title">Tangiers</h2>
+                    </div>
+                    <ul class="tobacco-section__flavors">
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Черника</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">01</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Малина</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">02</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Кола</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">03</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Лайм</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">04</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="tobacco-section" data-tobacco-section style="--brand-color: #331c1a;">
+                    <div class="tobacco-section__bg" style="background-image: url('images/tobacco/burn.jpg');" aria-hidden="true"></div>
+                    <img class="tobacco-section__image" src="images/tobacco/burn.jpg" alt="" loading="lazy" />
+                    <div class="tobacco-section__head">
+                        <span class="tobacco-section__index" aria-hidden="true">05</span>
+                        <h2 class="tobacco-section__title">Burn</h2>
+                    </div>
+                    <ul class="tobacco-section__flavors">
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Хвоя</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">01</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Можжевельник</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">02</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Табачный лист</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">03</span>
+                        </li>
+                        <li class="tobacco-section__flavor">
+                            <span class="tobacco-section__flavor-name">Специи</span>
+                            <span class="tobacco-section__flavor-dots"></span>
+                            <span class="tobacco-section__flavor-num">04</span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__col">
+                    <a class="footer__logo" href="index.html">Quattra</a>
+                    <p class="footer__tagline">Развлекательный центр</p>
+                </div>
+                <div class="footer__col">
+                    <span class="footer__caption">Разделы</span>
+                    <nav class="footer__nav">
+                        <a href="pc.html">Cyber</a>
+                        <a href="kitchen.html">Kitchen</a>
+                        <a href="lounge.html">Lounge</a>
+                        <a href="contacts.html">Контакты</a>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <span class="footer__caption">Контакты</span>
+                    <a class="footer__phone" href="tel:+79268194444">+7 926 819-44-44</a>
+                    <span class="footer__address">г. Йошкар-Ола, ул. Строителей, 96к</span>
+                    <div class="footer__hours">
+                        <div class="footer__hours-row">
+                            <span class="footer__hours-days">Вс–Чт</span>
+                            <span class="footer__hours-time">12:00–03:00</span>
+                        </div>
+                        <div class="footer__hours-row">
+                            <span class="footer__hours-days">Пт–Сб</span>
+                            <span class="footer__hours-time">12:00–05:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <span class="footer__caption">Соцсети</span>
+                    <div class="footer__social">
+                        <a href="https://t.me/quattrapro" target="_blank" aria-label="Telegram">TG</a>
+                        <a href="https://vk.ru/quattrapro" target="_blank" aria-label="ВКонтакте">VK</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <span class="footer__copy">© <span data-year>2026</span> Quattra. Все права защищены.</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<!-- Оверлей перехода по ссылкам -->
+<div class="page-transition" data-page-transition aria-hidden="true">
+    <div class="page-transition__panel" data-pt-panel></div>
+    <div class="page-transition__label" data-pt-label></div>
+</div>
+
+<script type="module" src="scripts/tobacco.js"></script>
+</body>
+</html>

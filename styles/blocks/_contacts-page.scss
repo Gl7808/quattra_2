@@ -1,0 +1,105 @@
+@use '../helpers' as *;
+
+.contacts-page {
+  padding: rem(140) 0 rem(90);
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  @include mobile {
+    padding: rem(110) 0 rem(60);
+  }
+
+  &__head {
+    max-width: rem(720);
+    margin-bottom: rem(50);
+
+    @include mobile {
+      margin-bottom: rem(34);
+    }
+  }
+
+  &__overline {
+    display: inline-block;
+    margin-bottom: rem(16);
+    font-family: var(--font-family-accent);
+    font-size: rem(13);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+  }
+
+  &__title {
+    margin: 0 0 rem(18);
+    @include fluid-text(64, 38);
+  }
+
+  &__lead {
+    margin: 0;
+    color: var(--color-light-30);
+    line-height: 1.6;
+    @include fluid-text(19, 16);
+  }
+
+  /* Большая карта в контейнере */
+  &__map {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-dark-25);
+    background-color: var(--color-dark-12);
+    aspect-ratio: 21 / 9;
+    margin-bottom: rem(50);
+
+    @include mobile {
+      aspect-ratio: 16 / 10;
+      margin-bottom: rem(34);
+    }
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(1) brightness(0.85) contrast(1.1);
+      pointer-events: none;
+      transition: filter 0.5s ease;
+    }
+
+    /* при наведении карта оживает и становится интерактивной */
+    &:hover iframe,
+    &:focus-within iframe {
+      filter: none;
+      pointer-events: auto;
+    }
+  }
+
+  /* Кнопка-подсказка на тач-устройствах */
+  &__map-link {
+    position: absolute;
+    left: 50%;
+    bottom: rem(16);
+    transform: translateX(-50%);
+    z-index: 2;
+    display: none;
+    padding: rem(10) rem(20);
+    border: 1px solid var(--color-dark-30);
+    background-color: var(--color-dark-5);
+    font-size: rem(12);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-light-10);
+    white-space: nowrap;
+
+    @include hover() {
+      border-color: var(--color-light-35);
+      color: var(--color-light-10);
+    }
+  }
+
+  @media (hover: none) {
+    .contacts-page__map-link {
+      display: block;
+    }
+  }
+}

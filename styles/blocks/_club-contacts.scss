@@ -1,0 +1,219 @@
+@use '../helpers' as *;
+
+.club-contacts {
+  padding: rem(90) 0;
+  border-top: 1px solid var(--color-dark-15);
+
+  @include mobile {
+    padding: rem(60) 0;
+  }
+
+  /* Левая половина — контакты, правая — карта */
+  &__wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(50);
+    align-items: stretch;
+
+    @include laptop {
+      gap: rem(30);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: rem(34);
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &__title {
+    margin: 0 0 rem(16);
+    @include fluid-text(48, 30);
+  }
+
+  &__text {
+    margin: 0 0 rem(34);
+    color: var(--color-light-35);
+    @include fluid-text(18, 15);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: rem(14);
+    margin-bottom: rem(40);
+  }
+
+  &__phone {
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    color: var(--color-light-10);
+    @include fluid-text(40, 26);
+
+    @include hover() {
+      color: var(--color-light-10);
+    }
+  }
+
+  &__address {
+    color: var(--color-light-35);
+    @include fluid-text(18, 15);
+  }
+
+  &__social {
+    margin-top: rem(10);
+  }
+
+  &__book {
+    padding: rem(20) rem(48);
+    border: none;
+    background-color: var(--color-accent);
+    color: var(--color-dark-5);
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    font-size: rem(16);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+
+    @include hover() {
+      transform: translateY(-3px);
+      box-shadow: 0 rem(10) rem(30) rgba(62, 180, 137, 0.25);
+    }
+  }
+
+  /* Карта: по умолчанию ч/б и «заморожена», при наведении оживает */
+  &__map {
+    position: relative;
+    min-height: rem(420);
+    overflow: hidden;
+    border: 1px solid var(--color-dark-25);
+    background-color: var(--color-dark-12);
+
+    @include mobile {
+      min-height: rem(320);
+    }
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(2) brightness(0.6) contrast(1.05);
+      pointer-events: none; /* не перехватывает скролл, пока не навели */
+      transition: filter 0.5s ease;
+    }
+
+    &:hover iframe,
+    &:focus-within iframe {
+      filter: none;
+      pointer-events: auto;
+    }
+  }
+  /* Режим работы */
+  &__hours {
+    margin-top: rem(16);
+    padding: rem(16) rem(18);
+    border: 1px solid var(--color-dark-25);
+    background-color: var(--color-dark-12);
+  }
+
+  &__hours-label {
+    display: block;
+    margin-bottom: rem(10);
+    font-size: rem(12);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+  }
+
+  &__hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: rem(12);
+    font-size: rem(14);
+    line-height: 1.6;
+  }
+
+  &__hours-days {
+    color: var(--color-light-35);
+  }
+
+  &__hours-time {
+    font-family: var(--font-family-accent);
+    font-weight: 600;
+    color: var(--color-light-10);
+  }
+
+  /* Соцсети: кнопки с иконками */
+  &__social {
+    margin-top: rem(20);
+    display: flex;
+    gap: rem(12);
+    padding: 0;
+    list-style: none;
+  }
+
+  &__social-item {
+    margin: 0;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(48);
+    height: rem(48);
+    border: 1px solid var(--color-dark-30);
+    background-color: var(--color-dark-12);
+    color: var(--color-light-10);
+    transition: border-color var(--transition-duration), background-color var(--transition-duration), transform var(--transition-duration);
+
+    @include hover() {
+      border-color: var(--color-accent);
+      background-color: var(--color-accent);
+      color: var(--color-dark-5);
+      transform: translateY(-2px);
+    }
+  }
+
+  /* На тач-устройствах ховера нет: карта остаётся превью,
+     а открыть её можно внешней ссылкой */
+  &__map-open {
+    position: absolute;
+    left: 50%;
+    bottom: rem(16);
+    transform: translateX(-50%);
+    z-index: 2;
+    display: none;
+    padding: rem(10) rem(20);
+    border: 1px solid var(--color-dark-30);
+    background-color: var(--color-dark-5);
+    font-size: rem(12);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-light-10);
+    white-space: nowrap;
+
+    @include hover() {
+      color: var(--color-light-10);
+      border-color: var(--color-light-35);
+    }
+  }
+
+  @media (hover: none) {
+    &__map-open {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,130 @@
+@use '../helpers' as *;
+
+.footer {
+  padding: rem(60) 0 rem(40);
+  border-top: 1px solid var(--color-dark-15);
+  background-color: var(--color-dark-5);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: rem(30);
+    padding-bottom: rem(40);
+    border-bottom: 1px solid var(--color-dark-15);
+
+    @include laptop {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: rem(26);
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    margin-bottom: rem(12);
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    font-size: rem(22);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-light-10);
+
+    @include hover() {
+      color: var(--color-light-10);
+    }
+  }
+
+  &__tagline {
+    margin: 0;
+    color: var(--color-light-40);
+    font-size: rem(14);
+  }
+
+  &__caption {
+    display: block;
+    margin-bottom: rem(14);
+    font-size: rem(12);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+
+    a {
+      color: var(--color-light-30);
+      font-size: rem(14);
+    }
+  }
+
+  &__phone {
+    display: block;
+    margin-bottom: rem(8);
+    color: var(--color-light-10);
+    font-weight: 600;
+    font-size: rem(16);
+
+    @include hover() {
+      color: var(--color-light-10);
+    }
+  }
+
+  &__address {
+    display: block;
+    color: var(--color-light-40);
+    font-size: rem(14);
+  }
+
+  &__social {
+    display: flex;
+    gap: rem(16);
+
+    a {
+      color: var(--color-light-30);
+      font-size: rem(14);
+      letter-spacing: 0.08em;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: rem(16);
+    flex-wrap: wrap;
+    padding-top: rem(24);
+  }
+
+  &__copy {
+    color: var(--color-light-40);
+    font-size: rem(13);
+  }
+
+  /* Режим работы в футере */
+  &__hours {
+    margin-top: rem(14);
+  }
+
+  &__hours-row {
+    display: flex;
+    justify-content: space-between;
+    gap: rem(10);
+    font-size: rem(13);
+    line-height: 1.6;
+  }
+
+  &__hours-days {
+    color: var(--color-light-40);
+  }
+
+  &__hours-time {
+    font-family: var(--font-family-accent);
+    font-weight: 600;
+    color: var(--color-light-30);
+  }
+}

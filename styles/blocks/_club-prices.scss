@@ -1,0 +1,109 @@
+@use '../helpers' as *;
+
+.club-prices {
+  padding: rem(90) 0;
+  border-top: 1px solid var(--color-dark-15);
+
+  @include mobile {
+    padding: rem(60) 0;
+  }
+
+  &__head {
+    text-align: center;
+    margin-bottom: rem(50);
+  }
+
+  &__overline {
+    display: inline-block;
+    margin-bottom: rem(14);
+    font-family: var(--font-family-accent);
+    font-size: rem(13);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(48, 30);
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(70);
+
+    @include laptop {
+      gap: rem(40);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: rem(40);
+    }
+  }
+
+  &__subtitle {
+    margin: 0 0 rem(26);
+    padding-bottom: rem(14);
+    border-bottom: 1px solid var(--color-dark-25);
+    @include fluid-text(26, 20);
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: rem(22);
+  }
+
+  &__row {
+    display: flex;
+    align-items: baseline;
+    gap: rem(12);
+  }
+
+  &__name {
+    font-family: var(--font-family-accent);
+    font-size: rem(17);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-light-20);
+    transition: color var(--transition-duration);
+  }
+
+  &__item:hover &__name {
+    color: var(--color-light-10);
+  }
+
+  &__dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--color-dark-35);
+    transform: translateY(-4px);
+  }
+
+  &__price {
+    font-family: var(--font-family-accent);
+    font-size: rem(17);
+    font-weight: 700;
+    color: var(--color-light-10);
+    white-space: nowrap;
+
+    em {
+      font-style: normal;
+      font-size: rem(13);
+      font-weight: 500;
+      color: var(--color-light-40);
+    }
+  }
+
+  &__note {
+    margin: rem(6) 0 0;
+    font-size: rem(13);
+    line-height: 1.5;
+    color: var(--color-light-40);
+  }
+}

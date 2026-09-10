@@ -1,0 +1,116 @@
+@use '../helpers' as *;
+
+.console-gallery {
+  &__viewport {
+    overflow: hidden;
+    cursor: grab;
+    /* вертикальный скролл страницы не трогаем */
+    touch-action: pan-y;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  }
+
+  &.is-dragging &__viewport {
+    cursor: grabbing;
+  }
+
+  &__track {
+    display: flex;
+    gap: rem(20);
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+
+    &--instant {
+      transition: none;
+    }
+  }
+
+  &__slide {
+    flex: 0 0 auto;
+    width: 56%;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-dark-25);
+    background-color: var(--color-dark-12);
+    opacity: 0.35;
+    transform: scale(0.92);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    user-select: none;
+
+    &.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @include mobile {
+      width: 84%;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition: filter 0.5s ease;
+    pointer-events: none;
+  }
+
+  /* активное фото — в цвете, соседние остаются ч/б */
+  &__slide.is-active &__image {
+    filter: grayscale(0);
+  }
+
+  &__caption {
+    padding: rem(14) rem(18);
+    background-color: var(--color-dark-12);
+    font-size: rem(13);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+    transition: color var(--transition-duration);
+  }
+
+  &__slide.is-active &__caption {
+    color: var(--color-light-30);
+  }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(20);
+    margin-top: rem(24);
+  }
+
+  &__counter {
+    font-family: var(--font-family-accent);
+    font-size: rem(14);
+    letter-spacing: 0.16em;
+    color: var(--color-light-40);
+  }
+
+  &__controls {
+    display: flex;
+    gap: rem(12);
+  }
+
+  &__arrow {
+    width: rem(46);
+    height: rem(46);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-dark-30);
+    background: none;
+    color: var(--color-light-10);
+    cursor: pointer;
+    transition: border-color var(--transition-duration), background-color var(--transition-duration);
+
+    @include hover() {
+      border-color: var(--color-light-35);
+      background-color: var(--color-dark-15);
+    }
+  }
+}

@@ -1,0 +1,310 @@
+@use '../helpers' as *;
+
+.tobacco-catalog {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: rem(60);
+  /* отступы как у .container, но без overflow: hidden — иначе сломается sticky */
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+
+  /* левая колонка выше фонов секций, чтобы блюр не затирал картинку */
+  &__left {
+    position: relative;
+    z-index: 3;
+  }
+
+  &__sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(40);
+  }
+
+  /* Вертикальная подпись, развёрнутая на 90° */
+  &__side-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--font-family-accent);
+    font-size: rem(12);
+    font-weight: 500;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--color-light-40);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  &__images {
+    position: relative;
+    width: rem(550);
+    height: rem(500);
+  }
+
+  /* Картинки стопкой: каждая следующая поверх предыдущей (порядок в DOM).
+     Спрятаны клипом сверху — раскрываются снизу вверх. */
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid var(--color-dark-25);
+    background-color: var(--brand-color, var(--color-dark-15));
+    clip-path: inset(100% 0 0 0);
+    will-change: clip-path;
+
+    /* первая картинка — базовый слой, видна всегда */
+    &--base {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Угловые скобки вокруг рамки — мотив прицела */
+  &__corner {
+    position: absolute;
+    z-index: 2;
+    width: rem(26);
+    height: rem(26);
+    border: 0 solid var(--color-light-35);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  &__corner--tl { top: rem(-10); left: rem(-10); border-top-width: 1px; border-left-width: 1px; }
+  &__corner--tr { top: rem(-10); right: rem(-10); border-top-width: 1px; border-right-width: 1px; }
+  &__corner--bl { bottom: rem(-10); left: rem(-10); border-bottom-width: 1px; border-left-width: 1px; }
+  &__corner--br { bottom: rem(-10); right: rem(-10); border-bottom-width: 1px; border-right-width: 1px; }
+
+  /* Линия-прогресс, заполняется по мере скролла каталога */
+  &__progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(16);
+  }
+
+  &__progress-line {
+    position: relative;
+    width: 1px;
+    height: rem(340);
+    background-color: var(--color-dark-30);
+  }
+
+  &__progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: var(--color-accent);
+  }
+
+  &__progress-ticks {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    span {
+      width: rem(9);
+      height: 1px;
+      background-color: var(--color-dark-35);
+      transform: translateX(rem(-4));
+    }
+  }
+
+  &__progress-count {
+    font-family: var(--font-family-accent);
+    font-size: rem(13);
+    letter-spacing: 0.16em;
+    color: var(--color-light-40);
+  }
+
+  @include laptop {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: rem(40);
+
+    &__sticky {
+      gap: rem(28);
+    }
+
+    &__side-label {
+      display: none;
+    }
+
+    &__images {
+      width: rem(300);
+      height: rem(300);
+    }
+
+    &__progress-line {
+      height: rem(300);
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+
+    &__left,
+    &__sticky {
+      display: none;
+    }
+  }
+}
+
+.tobacco-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: rem(60) 0;
+  isolation: isolate;
+
+  /* Размытый фон: fixed на весь вьюпорт, во всю ширину страницы */
+  &__bg {
+    position: fixed;
+    inset: -10%;
+    z-index: -1;
+    background-color: var(--brand-color, var(--color-dark-15));
+    background-size: cover;
+    background-position: center;
+    filter: blur(#{rem(50)});
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+
+    /* виньетка, чтобы текст был читаем */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(9, 9, 9, 0.2) 0%, rgba(9, 9, 9, 0.7) 75%);
+    }
+  }
+
+  &.is-active &__bg {
+    opacity: 0.35;
+  }
+
+  /* Картинка бренда — только на мобильных, вместо липкой стопки */
+  &__image {
+    display: none;
+    width: 100%;
+    max-width: rem(320);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid var(--color-dark-25);
+    background-color: var(--brand-color, var(--color-dark-15));
+    margin-bottom: rem(24);
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    gap: rem(24);
+    margin-bottom: rem(42);
+  }
+
+  /* Большой контурный номер секции */
+  &__index {
+    font-family: var(--font-family-accent);
+    font-weight: 700;
+    line-height: 0.8;
+    color: rgba(255, 255, 255, 0.05);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.16);
+    @include fluid-text(120, 56);
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(56, 32);
+  }
+
+  /* Список вкусов в стиле меню: название — пунктир — номер */
+  &__flavors {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+    max-width: rem(640);
+  }
+
+  &__flavor {
+    display: flex;
+    align-items: baseline;
+    gap: rem(12);
+  }
+
+  &__flavor-name {
+    font-family: var(--font-family-accent);
+    font-weight: 600;
+    font-size: rem(17);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-light-20);
+  }
+
+  &__flavor-dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--color-dark-35);
+    transform: translateY(-4px);
+  }
+
+  &__flavor-num {
+    font-family: var(--font-family-accent);
+    font-size: rem(13);
+    letter-spacing: 0.14em;
+    color: var(--color-light-40);
+  }
+
+  /* Появление контента активной секции; каскад только на вход */
+  &__index,
+  &__title,
+  &__flavor {
+    opacity: 0;
+    transform: translateY(rem(30));
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &.is-active {
+    .tobacco-section__index,
+    .tobacco-section__title,
+    .tobacco-section__flavor {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tobacco-section__title {
+      transition-delay: 0.08s;
+    }
+
+    .tobacco-section__flavor {
+      transition-delay: calc(0.12s + var(--i, 0) * 0.07s);
+    }
+  }
+
+  @include mobile {
+    min-height: auto;
+    padding: rem(50) 0;
+
+    &__image {
+      display: block;
+    }
+
+    &__head {
+      flex-wrap: wrap;
+    }
+  }
+}

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quattra — Lounge</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+<div class="page">
+
+    <header class="header">
+        <button class="burger" type="button" data-burger aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+
+        <a class="header__logo" href="index.html">Quattra</a>
+
+        <ul class="header__social social">
+            <li class="social__item"><a class="social__link" href="https://t.me/quattrapro" target="_blank" aria-label="Telegram">TG</a></li>
+            <li class="social__item"><a class="social__link" href="https://vk.ru/quattrapro" target="_blank" aria-label="ВКонтакте">VK</a></li>
+        </ul>
+    </header>
+
+    <!-- Полноэкранное меню -->
+    <div class="fullscreen-nav" id="site-menu" data-fullscreen-nav aria-hidden="true">
+        <div class="fullscreen-nav__inner">
+            <nav class="fullscreen-nav__menu" aria-label="Основное меню">
+                <ul class="fullscreen-nav__list">
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="index.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Главная</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Главная</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="pc.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Игровая</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Игровая</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="kitchen.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Кухня</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Кухня</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="lounge.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Лаунж</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Лаунж</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="bar.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Бар</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Бар</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="interactive.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Интерактив</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Интерактив</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="contacts.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Контакты</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Контакты</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="fullscreen-nav__footer">
+                <div class="fullscreen-nav__contacts">
+                    <a class="fullscreen-nav__phone" href="tel:+79268194444">+7 926 819 4444</a>
+                    <span class="fullscreen-nav__address">г. Йошкар-Ола, ул. Строителей, 96к</span>
+                </div>
+                <ul class="fullscreen-nav__social social">
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- ЭКРАН 1: герой -->
+        <section class="lounge-hero" data-lounge-hero>
+            <div class="lounge-hero__bg">
+                <img class="lounge-hero__photo is-active" src="images/lounge/hero-01.png" alt="" />
+                <img class="lounge-hero__photo" src="images/lounge/hero-02.png" alt="" />
+                <img class="lounge-hero__photo" src="images/lounge/hero-03.png" alt="" />
+                <div class="lounge-hero__dim"></div>
+            </div>
+            <div class="container lounge-hero__content">
+                <span class="lounge-hero__overline">Кальянная зона</span>
+                <h1 class="lounge-hero__title">Quattra Lounge</h1>
+                <p class="lounge-hero__lead">
+                    Уникальное место для праздника, корпоратива и отдыха с друзьями.
+                    Собственная кухня, бар и развлечения — для взрослых и детей.
+                </p>
+            </div>
+            <div class="lounge-hero__scroll" aria-hidden="true">
+                <span class="lounge-hero__scroll-line"></span>
+                <span class="lounge-hero__scroll-text">Листайте</span>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 2: позиционирование -->
+        <section class="lounge-section lounge-intro">
+            <div class="container">
+                <div class="section-head section-head--center">
+                    <span class="section-head__overline">Quattra Lounge</span>
+                    <h2 class="section-head__title">Уникальное место для вашего праздника</h2>
+                    <p class="section-head__lead">
+                        Сочетая множество видов развлечений, собственную кухню и бар,
+                        лаунж становится идеальным местом для любого события —
+                        как для взрослого, так и для ребёнка.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ЭКРАН 3: пресеты кальянов -->
+        <section class="lounge-section lounge-presets" data-lounge-presets>
+            <div class="container">
+                <div class="lounge-presets__head">
+                    <div class="section-head">
+                        <span class="section-head__overline">Пресеты</span>
+                        <h2 class="section-head__title">Готовые сочетания вкусов</h2>
+                        <p class="section-head__lead">
+                            Собрали лучшие миксы, чтобы вы могли выбрать настроение —
+                            от лёгкого фруктового до крепкого и необычного.
+                        </p>
+                    </div>
+                    <div class="lounge-presets__controls">
+                        <span class="lounge-presets__counter" data-presets-counter>01 / 06</span>
+                        <button class="lounge-presets__arrow" type="button" data-presets-prev aria-label="Предыдущий пресет">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                                <path d="M12 3L6 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="lounge-presets__arrow" type="button" data-presets-next aria-label="Следующий пресет">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                                <path d="M6 3l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lounge-presets__viewport">
+                <div class="lounge-presets__track" data-presets-track>
+
+                    <article class="preset-card" data-presets-slide>
+                        <div class="preset-card__media"><img src="images/lounge/preset-01.jpg" alt="Цитрус Фреш" loading="lazy" /></div>
+                        <div class="preset-card__body">
+                            <span class="preset-card__strength preset-card__strength--light">Лёгкий</span>
+                            <h3 class="preset-card__name">Цитрус Фреш</h3>
+                            <p class="preset-card__mix">Грейпфрут · Мята · Лёд</p>
+                            <p class="preset-card__desc">Освежающий микс с яркой цитрусовой кислинкой и холодным послевкусием.</p>
+                        </div>
+                    </article>
+
+                    <article class="preset-card" data-presets-slide>
+                        <div class="preset-card__media"><img src="images/lounge/preset-02.jpg" alt="Ягодный Микс" loading="lazy" /></div>
+                        <div class="preset-card__body">
+                            <span class="preset-card__strength preset-card__strength--medium">Средний</span>
+                            <h3 class="preset-card__name">Ягодный Микс</h3>
+                            <p class="preset-card__mix">Малина · Черника · Смородина</p>
+                            <p class="preset-card__desc">Насыщенный ягодный букет с лёгкой терпкостью и сладким финишем.</p>
+                        </div>
+                    </article>
+
+                    <article class="preset-card" data-presets-slide>
+                        <div class="preset-card__media"><img src="images/lounge/preset-03.jpg" alt="Тропический Рай" loading="lazy" /></div>
+                        <div class="preset-card__body">
+                            <span class="preset-card__strength preset-card__strength--light">Лёгкий</span>
+                            <h3 class="preset-card__name">Тропический Рай</h3>
+                            <p class="preset-card__mix">Манго · Маракуйя · Ананас</p>
+                            <p class="preset-card__desc">Сочные тропические фрукты — как отпуск в каждой затяжке.</p>
+                        </div>
+                    </article>
+
+                    <article class="preset-card" data-presets-slide>
+                        <div class="preset-card__media"><img src="images/lounge/preset-04.jpg" alt="Восточная Сказка" loading="lazy" /></div>
+                        <div class="preset-card__body">
+                            <span class="preset-card__strength preset-card__strength--medium">Средний</span>
+                            <h3 class="preset-card__name">Восточная Сказка</h3>
+                            <p class="preset-card__mix">Дыня · Виноград · Мята</p>
+                            <p class="preset-card__desc">Медовая дыня и спелый виноград с прохладной мятной нотой.</p>
+                        </div>
+                    </article>
+
+                    <article class="preset-card" data-presets-slide>
+                        <div class="preset-card__media"><img src="images/lounge/preset-05.jpg" alt="Лесная Прохлада" loading="lazy" /></div>
+                        <div class="preset-card__body">
+                            <span class="preset-card__strength preset-card__strength--strong">Крепкий</span>
+                            <h3 class="preset-card__name">Лесная Прохлада</h3>
+                            <p class="preset-card__mix">Хвоя · Можжевельник · Лимон</p>
+                            <p class="preset-card__desc">Необычное хвойное сочетание для тех, кто ищет новые ощущения.</p>
+                        </div>
+                    </article>
+
+                    <article class="preset-card" data-presets-slide>
+                        <div class="preset-card__media"><img src="images/lounge/preset-06.jpg" alt="Десерт Вечер" loading="lazy" /></div>
+                        <div class="preset-card__body">
+                            <span class="preset-card__strength preset-card__strength--light">Лёгкий</span>
+                            <h3 class="preset-card__name">Десерт Вечер</h3>
+                            <p class="preset-card__mix">Ваниль · Карамель · Корица</p>
+                            <p class="preset-card__desc">Тёплый десертный микс — идеален под чай или кофе.</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <div class="container lounge-presets__cta">
+                <a class="lounge-presets__link" href="tobacco.html">
+                    <span>Каталог табаков</span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 4: комнаты и залы -->
+        <section class="lounge-section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-head__overline">Пространство</span>
+                    <h2 class="section-head__title">Комнаты и залы под ваш формат</h2>
+                    <p class="section-head__lead">
+                        От камерных комнат для своей компании до больших залов
+                        с телевизорами для крупного события.
+                    </p>
+                </div>
+
+                <div class="split-block">
+                    <div class="split-block__media">
+                        <img src="images/lounge/hero-01.png" alt="Камерные комнаты" loading="lazy" />
+                        <span class="split-block__badge">до 10 гостей</span>
+                    </div>
+                    <div class="split-block__content">
+                        <span class="split-block__label">Камерные комнаты</span>
+                        <h3 class="split-block__title">Уединение для своей компании</h3>
+                        <p class="split-block__text">
+                            Небольшие приватные комнаты, где ничто не отвлекает от отдыха.
+                            Мягкие диваны, приглушённый свет и всё необходимое под рукой.
+                        </p>
+                        <ul class="split-block__features">
+                            <li class="split-block__feature">PS5 Pro и большой 4K-телевизор</li>
+                            <li class="split-block__feature">Мягкие диваны и приглушённый свет</li>
+                            <li class="split-block__feature">Кальян, кухня и бар рядом</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="split-block split-block--reverse">
+                    <div class="split-block__media">
+                        <img src="images/lounge/hero-01.png" alt="Большой зал" loading="lazy" />
+                        <span class="split-block__badge">до 30 гостей</span>
+                    </div>
+                    <div class="split-block__content">
+                        <span class="split-block__label">Большой зал</span>
+                        <h3 class="split-block__title">Пространство для праздника и события</h3>
+                        <p class="split-block__text">
+                            Просторный зал с большими телевизорами и мощным звуком.
+                            Подходит для корпоративов, дней рождения, просмотров и мероприятий.
+                        </p>
+                        <ul class="split-block__features">
+                            <li class="split-block__feature">Большие экраны для просмотров и трансляций</li>
+                            <li class="split-block__feature">Мощный звук и место для танцев</li>
+                            <li class="split-block__feature">Зонирование под ваше событие</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 5: кухня и бар -->
+        <section class="lounge-section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-head__overline">Кухня и бар</span>
+                    <h2 class="section-head__title">Вкус, который дополняет отдых</h2>
+                    <p class="section-head__lead">
+                        Собственная кухня и авторский бар — чтобы праздник был не только
+                        атмосферным, но и вкусным.
+                    </p>
+                </div>
+
+                <div class="split-block">
+                    <div class="split-block__media">
+                        <img src="images/lounge/kitchen.png" alt="Кухня" loading="lazy" />
+                    </div>
+                    <div class="split-block__content">
+                        <span class="split-block__label">Собственная кухня</span>
+                        <h3 class="split-block__title">Только качественные продукты</h3>
+                        <p class="split-block__text">
+                            Готовим вкусно и свежо: от сытных горячих блюд до лёгких закусок.
+                            Используем только качественные продукты и подаём прямо к вашему дивану.
+                        </p>
+                        <ul class="split-block__features">
+                            <li class="split-block__feature">Свежие и качественные продукты</li>
+                            <li class="split-block__feature">Горячие блюда и закуски</li>
+                            <li class="split-block__feature">Подача прямо в комнату</li>
+                        </ul>
+                        <a href="kitchen.html" class="split-block--button">
+                            <button class="tabs__button">Кухня</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="split-block split-block--reverse">
+                    <div class="split-block__media">
+                        <img src="images/lounge/bar.png" alt="Бар" loading="lazy" />
+                    </div>
+                    <div class="split-block__content">
+                        <span class="split-block__label">Авторский бар</span>
+                        <h3 class="split-block__title">Коктейли, которые запоминаются</h3>
+                        <p class="split-block__text">
+                            Авторские и популярные коктейли, чай, кофе и лимонады.
+                            Бармены знают своё дело и подберут напиток под настроение.
+                        </p>
+                        <ul class="split-block__features">
+                            <li class="split-block__feature">Авторские и популярные коктейли</li>
+                            <li class="split-block__feature">Чай, кофе и домашние лимонады</li>
+                            <li class="split-block__feature">Бармены, которые знают своё дело</li>
+                        </ul>
+                        <a href="bar.html" class="split-block--button">
+                            <button class="tabs__button">Бар</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="club-contacts">
+            <div class="container">
+                <div class="club-contacts__wrap">
+                    <div class="club-contacts__left">
+                        <h2 class="club-contacts__title">Контакты</h2>
+                        <p class="club-contacts__text">Приходите сами или забронируйте место заранее.</p>
+
+                        <div class="club-contacts__info">
+                            <a class="club-contacts__phone" href="tel:+79268194444">+7 926 819-44-44</a>
+                            <span class="club-contacts__address">г. Йошкар-Ола, ул. Строителей, 96к</span>
+                            <!-- Режим работы -->
+                            <div class="club-contacts__hours">
+                                <span class="club-contacts__hours-label">Режим работы</span>
+                                <div class="club-contacts__hours-row">
+                                    <span class="club-contacts__hours-days">Вс–Чт</span>
+                                    <span class="club-contacts__hours-time">12:00–03:00</span>
+                                </div>
+                                <div class="club-contacts__hours-row">
+                                    <span class="club-contacts__hours-days">Пт–Сб</span>
+                                    <span class="club-contacts__hours-time">12:00–05:00</span>
+                                </div>
+                            </div>
+
+                            <!-- Соцсети в виде кнопок с иконками -->
+                            <ul class="club-contacts__social">
+                                <li class="club-contacts__social-item">
+                                    <a class="club-contacts__social-link" href="https://t.me/quattrapro" target="_blank" aria-label="Telegram">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="club-contacts__social-item">
+                                    <a class="club-contacts__social-link" href="https://vk.ru/quattrapro" target="_blank" aria-label="ВКонтакте">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.525-2.049-1.714-1.033-1.019-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.12-5.339-3.202-2.17-3.048-2.763-5.339-2.763-5.814 0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.271 4.675 2.856 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.271.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.491-.085.745-.576.745z"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button class="club-contacts__book" type="button" data-book-open>Забронировать</button>
+                    </div>
+
+                    <!-- Карта: ч/б, оживает при наведении -->
+                    <div class="club-contacts__map">
+                        <iframe
+                                src="https://yandex.ru/map-widget/v1/?um=constructor%3A301c8b290bdc39214ee0e3c7b632b7fadbd60a72bc39df2fc8baba60ce3ab671&amp;source=constructor"
+                                title="Карта: Quattra, Йошкар-Ола, ул. Строителей, 96к"
+                                loading="lazy"></iframe>
+                        <a class="club-contacts__map-open"
+                           href="https://yandex.ru/maps/?text=%D0%99%D0%BE%D1%88%D0%BA%D0%B0%D1%80-%D0%9E%D0%BB%D0%B0%2C%20%D1%83%D0%BB.%20%D0%A1%D1%82%D1%80%D0%BE%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%2C%2096%D0%BA"
+                           target="_blank">Открыть в Яндекс Картах</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!--        <section class="lounge-section lounge-events">-->
+<!--            <div class="container">-->
+<!--                <div class="section-head">-->
+<!--                    <span class="section-head__overline">Афиша</span>-->
+<!--                    <h2 class="section-head__title">Мероприятия</h2>-->
+<!--                    <p class="section-head__lead">-->
+<!--                        Дегустации новых линеек, совместные просмотры и встречи индустрии —-->
+<!--                        следите за анонсами.-->
+<!--                    </p>-->
+<!--                </div>-->
+
+<!--                <div class="lounge-events__grid">-->
+<!--                    <article class="event-card">-->
+<!--                        <div class="event-card__top">-->
+<!--                            <span class="event-card__date">19 августа</span>-->
+<!--                            <span class="event-card__time">18:00</span>-->
+<!--                        </div>-->
+<!--                        <h3 class="event-card__title">Дегустация коллаборации EL COPITAS × ХУЛИГАН</h3>-->
+<!--                        <p class="event-card__text">Встречаемся на дегустации коллаборации. Новые вкусы, живое общение и честные отзывы от мастеров.</p>-->
+<!--                        <span class="event-card__place">Йошкар-Ола, ул. Строителей, 96К, «QUATTRA»</span>-->
+<!--                    </article>-->
+
+<!--                    <article class="event-card">-->
+<!--                        <div class="event-card__top">-->
+<!--                            <span class="event-card__date">Финал ЧМ</span>-->
+<!--                            <span class="event-card__time">с 21:00</span>-->
+<!--                        </div>-->
+<!--                        <h3 class="event-card__title">Финал ЧМ в правильной компании 🏆</h3>-->
+<!--                        <p class="event-card__text">Финал ЧМ стоит прожить в правильной компании. Игровая резиденция Quattra открывает двери для гостей с 21:00.</p>-->
+<!--                        <span class="event-card__place">Йошкар-Ола, ул. Строителей, 96К, «QUATTRA»</span>-->
+<!--                    </article>-->
+
+<!--                    <article class="event-card">-->
+<!--                        <div class="event-card__top">-->
+<!--                            <span class="event-card__date">Круглый стол</span>-->
+<!--                            <span class="event-card__time">DEUS PERFUME</span>-->
+<!--                        </div>-->
+<!--                        <h3 class="event-card__title">Дегустация линейки DEUS PERFUME</h3>-->
+<!--                        <p class="event-card__text">В рамках круглого стола работники кальянной индустрии города пробовали новые ароматы линейки DEUS PERFUME от амбассадора @sobir013.</p>-->
+<!--                        <span class="event-card__place">Йошкар-Ола, ул. Строителей, 96К, «QUATTRA»</span>-->
+<!--                    </article>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__col">
+                    <a class="footer__logo" href="index.html">Quattra</a>
+                    <p class="footer__tagline">Развлекательный центр</p>
+                </div>
+                <div class="footer__col">
+                    <span class="footer__caption">Разделы</span>
+                    <nav class="footer__nav">
+                        <a href="pc.html">Cyber</a>
+                        <a href="kitchen.html">Kitchen</a>
+                        <a href="lounge.html">Lounge</a>
+                        <a href="contacts.html">Контакты</a>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <span class="footer__caption">Контакты</span>
+                    <a class="footer__phone" href="tel:+79268194444">+7 926 819-44-44</a>
+                    <span class="footer__address">г. Йошкар-Ола, ул. Строителей, 96к</span>
+                    <div class="footer__hours">
+                        <div class="footer__hours-row">
+                            <span class="footer__hours-days">Вс–Чт</span>
+                            <span class="footer__hours-time">12:00–03:00</span>
+                        </div>
+                        <div class="footer__hours-row">
+                            <span class="footer__hours-days">Пт–Сб</span>
+                            <span class="footer__hours-time">12:00–05:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <span class="footer__caption">Соцсети</span>
+                    <div class="footer__social">
+                        <a href="https://t.me/quattrapro" target="_blank" aria-label="Telegram">TG</a>
+                        <a href="https://vk.ru/quattrapro" target="_blank" aria-label="ВКонтакте">VK</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <span class="footer__copy">© <span data-year>2026</span> Quattra. Все права защищены.</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- Модалка бронирования -->
+<div class="book-modal" data-book-modal aria-hidden="true">
+    <div class="book-modal__overlay" data-book-close></div>
+    <div class="book-modal__window" role="dialog" aria-modal="true" aria-labelledby="book-modal-title">
+        <button class="book-modal__close" type="button" data-book-close aria-label="Закрыть">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <h3 class="book-modal__title" id="book-modal-title">Бронирование</h3>
+        <p class="book-modal__text">
+            Чтобы забронировать место, напишите нам в Telegram по указанному номеру
+            или позвоните — подберём удобное время и подтвердим бронь.
+        </p>
+
+        <div class="book-modal__actions">
+            <a class="book-modal__link book-modal__link--primary" href="https://t.me/+79268194444" target="_blank">Написать в Telegram</a>
+            <a class="book-modal__link" href="tel:+79268194444">+7 926 819-44-44</a>
+        </div>
+    </div>
+</div>
+<!-- Оверлей перехода по ссылкам -->
+<div class="page-transition" data-page-transition aria-hidden="true">
+    <div class="page-transition__panel" data-pt-panel></div>
+    <div class="page-transition__label" data-pt-label></div>
+</div>
+<script type="module" src="scripts/lounge.js"></script>
+
+</body>
+</html>
