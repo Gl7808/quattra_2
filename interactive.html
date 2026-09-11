@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Интерактив — Quattra</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+<div class="loader" data-loader>
+    <div class="loader__counter">
+        <span class="loader__wheel" data-loader-wheel="hundreds"><span class="loader__wheel-track"><span class="loader__digit">0</span><span class="loader__digit">1</span><span class="loader__digit">2</span><span class="loader__digit">3</span><span class="loader__digit">4</span><span class="loader__digit">5</span><span class="loader__digit">6</span><span class="loader__digit">7</span><span class="loader__digit">8</span><span class="loader__digit">9</span></span></span>
+        <span class="loader__wheel" data-loader-wheel="tens"><span class="loader__wheel-track"><span class="loader__digit">0</span><span class="loader__digit">1</span><span class="loader__digit">2</span><span class="loader__digit">3</span><span class="loader__digit">4</span><span class="loader__digit">5</span><span class="loader__digit">6</span><span class="loader__digit">7</span><span class="loader__digit">8</span><span class="loader__digit">9</span></span></span>
+        <span class="loader__wheel" data-loader-wheel="units"><span class="loader__wheel-track"><span class="loader__digit">0</span><span class="loader__digit">1</span><span class="loader__digit">2</span><span class="loader__digit">3</span><span class="loader__digit">4</span><span class="loader__digit">5</span><span class="loader__digit">6</span><span class="loader__digit">7</span><span class="loader__digit">8</span><span class="loader__digit">9</span></span></span>
+    </div>
+</div>
+
+<div class="page page--interactive">
+
+    <div class="crosshair" data-crosshair aria-hidden="true">
+        <span class="crosshair__line crosshair__line--top" data-crosshair-line="top"></span>
+        <span class="crosshair__line crosshair__line--bottom" data-crosshair-line="bottom"></span>
+        <span class="crosshair__line crosshair__line--left" data-crosshair-line="left"></span>
+        <span class="crosshair__line crosshair__line--right" data-crosshair-line="right"></span>
+        <span class="crosshair__corner crosshair__corner--top-left" data-crosshair-corner="top-left"></span>
+        <span class="crosshair__corner crosshair__corner--top-right" data-crosshair-corner="top-right"></span>
+        <span class="crosshair__corner crosshair__corner--bottom-left" data-crosshair-corner="bottom-left"></span>
+        <span class="crosshair__corner crosshair__corner--bottom-right" data-crosshair-corner="bottom-right"></span>
+    </div>
+
+    <header class="header">
+        <button class="burger" type="button" data-burger aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+
+        <a class="header__logo" href="index.html">Quattra</a>
+
+        <ul class="header__social social">
+            <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+        </ul>
+    </header>
+
+    <!-- Полноэкранное меню -->
+    <div class="fullscreen-nav" id="site-menu" data-fullscreen-nav aria-hidden="true">
+        <div class="fullscreen-nav__inner">
+            <nav class="fullscreen-nav__menu" aria-label="Основное меню">
+                <ul class="fullscreen-nav__list">
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="index.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Главная</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Главная</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="pc.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Игровая</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Игровая</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="kitchen.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Кухня</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Кухня</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="lounge.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Лаунж</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Лаунж</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="bar.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Бар</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Бар</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="interactive.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Интерактив</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Интерактив</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="fullscreen-nav__item">
+                        <a class="fullscreen-nav__link" href="contacts.html">
+                            <span class="fullscreen-nav__roll">
+                                <span class="fullscreen-nav__word">Контакты</span>
+                                <span class="fullscreen-nav__word" aria-hidden="true">Контакты</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="fullscreen-nav__footer">
+                <div class="fullscreen-nav__contacts">
+                    <a class="fullscreen-nav__phone" href="tel:+79268194444">+7 926 819 4444</a>
+                    <span class="fullscreen-nav__address">г. Йошкар-Ола, ул. Строителей, 96к</span>
+                </div>
+                <ul class="fullscreen-nav__social social">
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+                    <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main class="interactive-slider" data-interactive-slider>
+
+        <div class="interactive-slider__bg" data-interactive-bg aria-hidden="true">
+            <img class="interactive-slider__bg-layer" data-interactive-bg-layer alt="" />
+            <img class="interactive-slider__bg-layer" data-interactive-bg-layer alt="" />
+        </div>
+
+        <div class="interactive-slider__viewport" data-interactive-viewport>
+            <ul class="interactive-slider__track" data-interactive-track>
+
+                <!-- 01 Мафия -->
+                <li class="interactive-slider__slide i-slide is-active" data-interactive-slide data-title="Мафия">
+                    <figure class="i-slide__media">
+                        <img class="i-slide__image" src="images/slides/slide-01.png" alt="Мафия" loading="lazy" draggable="false" />
+                    </figure>
+                    <div class="i-slide__info">
+                        <p class="i-slide__desc">Классическая мафия каждую пятницу. Собираем компании от 6 до 12 человек, ведущий и все роли — у нас.</p>
+                        <div class="i-slide__socials">Следите за анонсами в <a href="#" class="i-slide__social-link">TG</a> и <a href="#" class="i-slide__social-link">VK</a></div>
+                    </div>
+                    <div class="i-slide__meta"><span class="i-slide__index">01</span><span class="i-slide__label">Мафия</span></div>
+                </li>
+
+                <!-- 02 Квиз (видео) -->
+                <li class="interactive-slider__slide i-slide" data-interactive-slide data-title="Квиз">
+                    <figure class="i-slide__media">
+                        <video class="i-slide__video" muted playsinline loop preload="metadata" poster="images/slides/slide-02.png">
+                            <source src="videos/quiz.mp4" type="video/mp4" />
+                        </video>
+                    </figure>
+                    <div class="i-slide__info">
+                        <p class="i-slide__desc">Интеллектуальные квизы на логику, кино и игры. Команды до 6 человек, призы победителям.</p>
+                        <div class="i-slide__socials">Расписание и регистрация в <a href="#" class="i-slide__social-link">TG</a> и <a href="#" class="i-slide__social-link">VK</a></div>
+                    </div>
+                    <div class="i-slide__meta"><span class="i-slide__index">02</span><span class="i-slide__label">Квиз</span></div>
+                </li>
+
+                <!-- 03 Чемпионат мира -->
+                <li class="interactive-slider__slide i-slide" data-interactive-slide data-title="Чемпионат мира">
+                    <figure class="i-slide__media">
+                        <img class="i-slide__image" src="images/slides/slide-03.png" alt="Чемпионат мира" loading="lazy" draggable="false" />
+                    </figure>
+                    <div class="i-slide__info">
+                        <p class="i-slide__desc">Смотрим матчи чемпионата мира на большом экране. Атмосфера стадиона, комментаторы и снеки.</p>
+                        <div class="i-slide__socials">Анонсы трансляций в <a href="#" class="i-slide__social-link">TG</a> и <a href="#" class="i-slide__social-link">VK</a></div>
+                    </div>
+                    <div class="i-slide__meta"><span class="i-slide__index">03</span><span class="i-slide__label">ЧМ</span></div>
+                </li>
+
+                <!-- 04 The International (видео) -->
+                <li class="interactive-slider__slide i-slide" data-interactive-slide data-title="The International">
+                    <figure class="i-slide__media">
+                        <video class="i-slide__video" muted playsinline loop preload="metadata" poster="images/slides/slide-04.png">
+                            <source src="videos/international.mp4" type="video/mp4" />
+                        </video>
+                    </figure>
+                    <div class="i-slide__info">
+                        <p class="i-slide__desc">Главный турнир года по Dota 2. Смотрим вместе, болеем за любимых, обсуждаем драфты.</p>
+                        <div class="i-slide__socials">Следите за расписанием в <a href="#" class="i-slide__social-link">TG</a> и <a href="#" class="i-slide__social-link">VK</a></div>
+                    </div>
+                    <div class="i-slide__meta"><span class="i-slide__index">04</span><span class="i-slide__label">TI</span></div>
+                </li>
+
+                <!-- 05 Турнир по CS2 -->
+                <li class="interactive-slider__slide i-slide" data-interactive-slide data-title="Турнир по CS2">
+                    <figure class="i-slide__media">
+                        <img class="i-slide__image" src="images/slides/slide-05.png" alt="Турнир по CS2" loading="lazy" draggable="false" />
+                    </figure>
+                    <div class="i-slide__info">
+                        <p class="i-slide__desc">Локальные турниры по CS2. Сетка 5×5, призовой фонд, стрим на большом экране.</p>
+                        <div class="i-slide__socials">Запись на турниры в <a href="#" class="i-slide__social-link">TG</a> и <a href="#" class="i-slide__social-link">VK</a></div>
+                    </div>
+                    <div class="i-slide__meta"><span class="i-slide__index">05</span><span class="i-slide__label">CS2</span></div>
+                </li>
+
+                <!-- 06 Настолки -->
+                <li class="interactive-slider__slide i-slide" data-interactive-slide data-title="Настолки">
+                    <figure class="i-slide__media">
+                        <img class="i-slide__image" src="images/slides/slide-06.png" alt="Настолки" loading="lazy" draggable="false" />
+                    </figure>
+                    <div class="i-slide__info">
+                        <p class="i-slide__desc">Вечера настольных игр: от классики до новинок. Приходите одни или компанией — найдём стол.</p>
+                        <div class="i-slide__socials">Афиша мероприятий в <a href="#" class="i-slide__social-link">TG</a> и <a href="#" class="i-slide__social-link">VK</a></div>
+                    </div>
+                    <div class="i-slide__meta"><span class="i-slide__index">06</span><span class="i-slide__label">Настолки</span></div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="interactive-slider__caption">
+            <div class="interactive-slider__caption-inner" data-interactive-caption>
+                <span class="interactive-slider__counter" data-interactive-counter>01 / 06</span>
+                <h1 class="interactive-slider__title" aria-live="polite">Мафия</h1>
+            </div>
+        </div>
+
+        <aside class="interactive-slider__aside">
+            <div class="i-side-nav">
+                <ol class="i-side-nav__numbers" data-interactive-numbers></ol>
+                <div class="i-side-nav__titles" data-interactive-titles>
+                    <div class="i-side-nav__titles-track" data-interactive-titles-track></div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="interactive-slider__hint" aria-hidden="true">
+            <span class="interactive-slider__hint-line"></span>
+            <span class="interactive-slider__hint-text">Листайте</span>
+        </div>
+    </main>
+</div>
+
+<div class="page-transition" data-page-transition aria-hidden="true">
+    <div class="page-transition__panel" data-pt-panel></div>
+    <div class="page-transition__label" data-pt-label></div>
+</div>
+
+<script type="module" src="scripts/interactive-main.js"></script>
+</body>
+</html>
