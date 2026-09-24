@@ -1,0 +1,25 @@
+[
+  { "name": "Апероль Шприц", "price": 550, "section": "Коктейли", "image": "images/bar/01.jpg" },
+  { "name": "Негрони", "price": 600, "section": "Коктейли", "image": "images/bar/01.jpg" },
+  { "name": "Маргарита", "price": 580, "section": "Коктейли", "image": "images/bar/01.jpg" },
+  { "name": "Московский мул", "price": 520, "section": "Коктейли", "image": "images/bar/01.jpg" },
+  { "name": "Эспрессо мартини", "price": 650, "section": "Коктейли", "image": "images/bar/01.jpg" },
+
+  { "name": "Разливное", "price": 250, "section": "Пиво", "image": "images/bar/02.jpg" },
+  { "name": "Крафт", "price": 450, "section": "Пиво", "image": "images/bar/02.jpg" },
+  { "name": "Гиннесс", "price": 450, "section": "Пиво", "image": "images/bar/02.jpg" },
+  { "name": "Лагер крафт", "price": 380, "section": "Пиво", "image": "images/bar/02.jpg" },
+  { "name": "IPA", "price": 420, "section": "Пиво", "image": "images/bar/02.jpg" },
+  { "name": "Сидр яблочный", "price": 350, "section": "Пиво", "image": "images/bar/02.jpg" },
+
+  { "name": "Виски бурбон", "price": 490, "section": "Крепкое", "image": "images/bar/03.jpg" },
+  { "name": "Ром тёмный", "price": 450, "section": "Крепкое", "image": "images/bar/03.jpg" },
+  { "name": "Текила бланко", "price": 470, "section": "Крепкое", "image": "images/bar/03.jpg" },
+  { "name": "Джин лондон драй", "price": 520, "section": "Крепкое", "image": "images/bar/03.jpg" },
+
+  { "name": "Лимонад манго-маракуйя", "price": 280, "section": "Безалкогольное", "image": "images/bar/04.jpg" },
+  { "name": "E-cola", "price": 320, "section": "Безалкогольное", "image": "images/bar/04.jpg" },
+  { "name": "CocaCola в стекле", "price": 200, "section": "Безалкогольное", "image": "images/bar/04.jpg" }
+
+
+]

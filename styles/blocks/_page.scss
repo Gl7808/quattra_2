@@ -25,3 +25,11 @@ body:has(.page--fixed) {
   touch-action: none;
   overscroll-behavior: none;
 }
+/* Страницы со свободным скроллом (турниры и будущие) */
+.page--scroll {
+  height: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: visible;
+  touch-action: auto;
+}

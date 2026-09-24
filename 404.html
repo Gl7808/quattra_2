@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quattra — Страница не найдена</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+<div class="page page--fixed">
+
+    <!-- Прицел для визуальной связи с главной -->
+    <div class="crosshair crosshair--static" aria-hidden="true">
+        <span class="crosshair__line crosshair__line--top"></span>
+        <span class="crosshair__line crosshair__line--bottom"></span>
+        <span class="crosshair__line crosshair__line--left"></span>
+        <span class="crosshair__line crosshair__line--right"></span>
+    </div>
+
+
+
+    <main class="placeholder">
+        <div class="placeholder__body">
+            <span class="placeholder__code">404</span>
+            <h1 class="placeholder__title">Страница<br>в&nbsp;разработке</h1>
+            <p class="placeholder__text">Мы уже работаем над этим разделом.<br>Скоро здесь появится что-то интересное.</p>
+
+            <a class="placeholder__back" href="index.html">
+                <span class="placeholder__back-text">Вернуться на главную</span>
+                <svg class="placeholder__back-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M15 8H2.5M7 3L2 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+
+        <footer class="placeholder__footer">
+            <a class="placeholder__phone" href="tel:+79268194444">+7 926 819-44-44</a>
+
+            <ul class="placeholder__socials social">
+                <li class="social__item"><a class="social__link" href="https://t.me/quattrapro" aria-label="Telegram">TG</a></li>
+                <li class="social__item"><a class="social__link" href="https://vk.ru/quattrapro" aria-label="VK">VK</a></li>
+                <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+            </ul>
+        </footer>
+    </main>
+</div>
+
+<script type="module" src="scripts/placeholder.js"></script>
+</body>
+</html>

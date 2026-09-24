@@ -1,0 +1,381 @@
+@use '../helpers' as *;
+
+.t-slider {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--color-dark-5);
+  overflow: hidden;
+
+  /* ── Декоративные линии прицела на фоне ── */
+  &__crosshair {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &__crosshair-line {
+    position: absolute;
+    background-color: var(--color-dark-20);
+    opacity: 0.4;
+  }
+
+  &__crosshair-line--h1 { left: 0; right: 0; top: 30%; height: 1px; }
+  &__crosshair-line--h2 { left: 0; right: 0; top: 70%; height: 1px; }
+  &__crosshair-line--v1 { top: 0; bottom: 0; left: 25%; width: 1px; }
+  &__crosshair-line--v2 { top: 0; bottom: 0; left: 75%; width: 1px; }
+
+  /* ── Контейнер ── */
+  &__container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: rem(170) 1fr rem(320);
+    gap: rem(40);
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-block: rem(100);
+
+    @include laptop {
+      grid-template-columns: rem(140) 1fr rem(260);
+      gap: rem(24);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      min-height: auto;
+      padding-block: rem(100) rem(40);
+    }
+  }
+
+  /* ── Левая часть: шкала с ползунком ── */
+  &__thumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(480);
+    padding-left: rem(12);
+
+    @include laptop {
+      height: rem(400);
+    }
+
+    @include mobile {
+      height: rem(300);
+      order: -1;
+    }
+  }
+
+  /* ── Центр: 3D-карточка ── */
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: rem(1400);
+
+    @include mobile {
+      min-height: rem(400);
+    }
+  }
+
+  /* ── Правая часть: описание ── */
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+
+    @include mobile {
+      padding-inline: var(--container-padding-x);
+      text-align: center;
+      align-items: center;
+    }
+  }
+
+  &__counter {
+    font-family: var(--font-family-accent);
+    font-size: rem(13);
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--color-light-40);
+  }
+
+  &__title {
+    margin: 0;
+    @include fluid-text(42, 28);
+    letter-spacing: 0.06em;
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: rem(15);
+    line-height: 1.7;
+    color: var(--color-light-35);
+  }
+
+  &__meta {
+    display: flex;
+    gap: rem(10);
+    flex-wrap: wrap;
+
+    @include mobile {
+      justify-content: center;
+    }
+  }
+
+  &__tag {
+    padding: rem(5) rem(14);
+    border: 1px solid var(--color-dark-30);
+    font-family: var(--font-family-accent);
+    font-size: rem(11);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-light-30);
+  }
+
+  &__btn {
+    margin-top: rem(12);
+    padding: rem(16) rem(36);
+    border: 1px solid var(--color-light-10);
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-family-accent);
+    font-size: rem(13);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-light-10);
+    transition:
+            background-color var(--transition-duration),
+            color var(--transition-duration);
+    align-self: flex-start;
+
+    @include hover() {
+      background-color: var(--color-light-10);
+      color: var(--color-dark-5);
+    }
+
+    @include mobile {
+      align-self: center;
+    }
+  }
+}
+
+/* ═══════ ШКАЛА С ПОЛУЗУНКОМ ═══════ */
+.t-scale {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  touch-action: none; /* чтобы драг ползунка не скроллил страницу на тач */
+
+  /* Вертикальная линия шкалы */
+  &__track {
+    position: absolute;
+    left: rem(9);
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--color-dark-30);
+  }
+
+  /* Ползунок — узел в стиле прицела */
+  &__thumb {
+    position: absolute;
+    left: rem(9);
+    top: 0;
+    z-index: 2;
+    width: rem(18);
+    height: rem(18);
+    margin: calc(#{rem(18)} / -2) 0 0 calc(#{rem(18)} / -2);
+    border: 1px solid var(--color-light-25);
+    border-radius: 50%;
+    background-color: var(--color-dark-5);
+    cursor: grab;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+
+    /* Усики прицела по бокам */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: rem(-12);
+      right: rem(-12);
+      height: 1px;
+      background-color: var(--color-light-35);
+      opacity: 0.5;
+    }
+
+    /* Точка в центре */
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: rem(4);
+      height: rem(4);
+      margin: rem(-2) 0 0 rem(-2);
+      border-radius: 50%;
+      background-color: var(--color-light-10);
+    }
+
+    &.is-dragging {
+      cursor: grabbing;
+      transition: none;
+    }
+  }
+
+  /* Миниатюры справа от линии */
+  &__items {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__item {
+    position: absolute;
+    left: rem(34);
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    padding: rem(6) rem(8) rem(6) 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--color-light-40);
+    transition:
+            color var(--transition-duration),
+            opacity var(--transition-duration);
+    opacity: 0.55;
+
+    @include hover() {
+      color: var(--color-light-25);
+      opacity: 0.85;
+    }
+
+    &.is-active {
+      color: var(--color-light-10);
+      opacity: 1;
+    }
+  }
+
+  /* Горизонтальный тик на линии шкалы */
+  &__tick {
+    position: absolute;
+    left: rem(-24);
+    top: 50%;
+    width: rem(13);
+    height: 1px;
+    background-color: var(--color-dark-35);
+    transition:
+            background-color var(--transition-duration),
+            width var(--transition-duration);
+  }
+
+  &__item.is-active &__tick {
+    width: rem(19);
+    background-color: var(--color-light-20);
+  }
+
+  &__number {
+    font-family: var(--font-family-accent);
+    font-size: rem(13);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+
+  &__label {
+    font-family: var(--font-family-accent);
+    font-size: rem(11);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    &__item {
+      left: rem(30);
+    }
+  }
+}
+
+/* ═══════ 3D-КАРТОЧКА ═══════ */
+.t-card {
+  position: relative;
+  width: rem(420);
+  height: rem(560);
+  cursor: default;
+
+  @include laptop {
+    width: rem(340);
+    height: rem(460);
+  }
+
+  @include mobile {
+    width: rem(280);
+    height: rem(380);
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-dark-25);
+    background-color: var(--color-dark-10);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  &__inner.is-spinning {
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-dark-15);
+  }
+
+  &__placeholder {
+    font-family: var(--font-family-accent);
+    font-size: rem(48);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-dark-25);
+    user-select: none;
+
+    @include mobile {
+      font-size: rem(32);
+    }
+  }
+
+  &__glare {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+                    circle at var(--glare-x, 50%) var(--glare-y, 50%),
+                    rgba(255, 255, 255, 0.18) 0%,
+                    transparent 55%
+    );
+    transition: opacity 0.3s ease;
+    mix-blend-mode: overlay;
+  }
+
+  &.is-hovered &__glare {
+    opacity: 1;
+  }
+}

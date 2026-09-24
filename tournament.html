@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quattra — Турниры</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+<div class="page page--scroll">
+
+    <header class="header">
+        <a class="header__logo" href="index.html">Quattra</a>
+        <nav class="header__nav" aria-label="Основная навигация">
+            <ul class="header__nav-list">
+                <li class="header__nav-item"><a class="header__nav-link" href="index.html">Cyber</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="kitchen.html">Kitchen</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="lounge.html">Lounge</a></li>
+            </ul>
+        </nav>
+        <ul class="header__social social">
+            <li class="social__item"><a class="social__link" href="#" aria-label="Telegram">TG</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="VK">VK</a></li>
+            <li class="social__item"><a class="social__link" href="#" aria-label="Twitter">TW</a></li>
+        </ul>
+    </header>
+
+    <!-- ═══════ СЕКЦИЯ 1: HERO + РАЗРЕЗАНИЕ ═══════ -->
+    <div class="tournament-intro" data-tournament-intro>
+
+        <!-- Надпись видна сразу, разрезается при скролле -->
+        <div class="reveal-curtain" data-reveal-curtain>
+            <div class="reveal-curtain__half reveal-curtain__half--top" data-curtain-top>
+                <p class="reveal-curtain__text">What does a hero truly need?</p>
+            </div>
+            <div class="reveal-curtain__half reveal-curtain__half--bottom" data-curtain-bottom>
+                <p class="reveal-curtain__text">What does a hero truly need?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ СЕКЦИЯ 2: ЭКРАН С КАРТИНКОЙ (открывается после разрезания) ═══════ -->
+    <section class="tournament-screen" data-tournament-screen>
+        <img class="tournament-screen__bg" src="images/tournament/screen-02.jpg" alt="" loading="lazy" draggable="false" />
+        <div class="tournament-screen__overlay"></div>
+        <div class="tournament-screen__content">
+            <h2 class="tournament-screen__title">Сезон 2026</h2>
+            <p class="tournament-screen__subtitle">Регистрация открыта</p>
+        </div>
+    </section>
+
+    <!-- ═══════ СЕКЦИЯ 3: 3D-СЛАЙДЕР ТУРНИРОВ ═══════ -->
+    <section class="t-slider" data-t-slider>
+
+        <!-- Декоративные линии прицела на фоне -->
+        <div class="t-slider__crosshair" aria-hidden="true">
+            <span class="t-slider__crosshair-line t-slider__crosshair-line--h1"></span>
+            <span class="t-slider__crosshair-line t-slider__crosshair-line--h2"></span>
+            <span class="t-slider__crosshair-line t-slider__crosshair-line--v1"></span>
+            <span class="t-slider__crosshair-line t-slider__crosshair-line--v2"></span>
+        </div>
+
+        <div class="container t-slider__container">
+
+            <!-- Левая часть: шкала с ползунком -->
+            <div class="t-slider__thumbs">
+                <div class="t-scale" data-t-scale>
+                    <div class="t-scale__track"></div>
+                    <div class="t-scale__thumb" data-t-scale-thumb></div>
+                    <div class="t-scale__items" data-t-scale-items>
+                        <!-- Генерируется JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Центр: 3D-карточка -->
+            <div class="t-slider__center">
+                <div class="t-card" data-t-card>
+                    <div class="t-card__inner" data-t-card-inner>
+                        <div class="t-card__media">
+                            <span class="t-card__placeholder" data-t-card-placeholder>CS2</span>
+                        </div>
+                        <div class="t-card__glare" data-t-card-glare></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая часть: описание -->
+            <div class="t-slider__info" data-t-info>
+                <span class="t-slider__counter" data-t-counter>01 / 05</span>
+                <h2 class="t-slider__title" data-t-title>Counter-Strike 2</h2>
+                <p class="t-slider__desc" data-t-desc>Тактический шутер от первого лица. Формат: 5v5, BO3. Призовой фонд турнира.</p>
+                <div class="t-slider__meta" data-t-meta>
+                    <span class="t-slider__tag">5v5</span>
+                    <span class="t-slider__tag">BO3</span>
+                </div>
+                <button class="t-slider__btn" type="button">Регистрация</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Оверлей перехода -->
+    <div class="page-transition" data-page-transition aria-hidden="true">
+        <div class="page-transition__panel" data-pt-panel></div>
+        <div class="page-transition__label" data-pt-label></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script type="module" src="scripts/tournament.js"></script>
+</body>
+</html>

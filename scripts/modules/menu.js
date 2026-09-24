@@ -5,7 +5,7 @@ const el = (tag, className, text) => {
     return node;
 };
 
-export async function createMenu(root, { preview, onActive, onOpen } = {}) {
+export async function createMenu(root, { preview, sectionImage, onActive, onOpen, dataSource = 'data/menu.json' } = {}) {
     const tabsEl = root.querySelector('[data-menu-tabs]');
     const listEl = root.querySelector('[data-menu-list]');
     const contentEl = root.querySelector('[data-menu-content]');
@@ -13,11 +13,11 @@ export async function createMenu(root, { preview, onActive, onOpen } = {}) {
 
     let data = [];
     try {
-        const response = await fetch('data/menu.json');
+        const response = await fetch(dataSource);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         data = await response.json();
     } catch (error) {
-        console.error('Не удалось загрузить data/menu.json:', error);
+        console.error(`Не удалось загрузить ${dataSource}:`, error);
         return null;
     }
 
@@ -29,6 +29,18 @@ export async function createMenu(root, { preview, onActive, onOpen } = {}) {
     let isAnimating = false;
 
     const itemsOf = (section) => data.filter((i) => i.section === section);
+
+    /* Обновляем статичную картинку раздела (для бара) */
+    function updateSectionImage(section) {
+        if (!sectionImage) return;
+        const firstItem = itemsOf(section)[0];
+        const src = firstItem?.image || '';
+        if (src && sectionImage.dataset.current !== src) {
+            sectionImage.src = src;
+            sectionImage.dataset.current = src;
+            sectionImage.classList.add('is-active');
+        }
+    }
 
     function setActiveDish(index, animate = true) {
         entries.forEach(({ card }, i) => card.classList.toggle('is-active', i === index));
@@ -84,7 +96,7 @@ export async function createMenu(root, { preview, onActive, onOpen } = {}) {
         });
     }
 
-    /* Мобильная версия: все разделы одним списком, без табов и фото */
+    /* Мобильная версия: все разделы одним списком */
     function renderFull() {
         if (!fullEl) return;
         fullEl.innerHTML = '';
@@ -127,6 +139,7 @@ export async function createMenu(root, { preview, onActive, onOpen } = {}) {
             currentSection = section;
             renderTabs();
             renderList();
+            updateSectionImage(currentSection);
             preview?.render(itemsOf(currentSection));
 
             const enter = contentEl.animate(
@@ -147,6 +160,7 @@ export async function createMenu(root, { preview, onActive, onOpen } = {}) {
     renderTabs();
     renderList();
     renderFull();
+    updateSectionImage(currentSection);
     preview?.render(itemsOf(currentSection));
     setActiveDish(0, false);
 

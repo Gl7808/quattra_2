@@ -1,0 +1,68 @@
+@use '../helpers' as *;
+
+.tournament-intro {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: var(--color-dark-5);
+}
+
+.reveal-curtain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.reveal-curtain__half {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  overflow: hidden;
+  background-color: var(--color-dark-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.reveal-curtain__half--top {
+  top: 0;
+  align-items: flex-end;
+}
+
+.reveal-curtain__half--bottom {
+  bottom: 0;
+  align-items: flex-start;
+}
+
+.reveal-curtain__text {
+  margin: 0;
+  font-family: var(--font-family-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-light-10);
+  @include fluid-text(96, 40);
+  line-height: 1.1;
+  white-space: nowrap;
+  padding-inline: var(--container-padding-x);
+  /* Видна сразу */
+  opacity: 1;
+
+  @include mobile {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+.reveal-curtain__half--top .reveal-curtain__text {
+  transform: translateY(50%);
+}
+
+.reveal-curtain__half--bottom .reveal-curtain__text {
+  transform: translateY(-50%);
+}

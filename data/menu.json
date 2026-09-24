@@ -10,6 +10,11 @@
   { "name": "Салат с хумусом", "price": 500, "section": "Салаты", "image": "images/kitchen/08.jpg" },
   { "name": "Цезарь с креветками", "price": 590, "section": "Салаты", "image": "images/kitchen/09.jpg" },
 
+  { "name": "Рибай", "price": 790, "section": "Горячее", "image": "images/kitchen/41.jpg" },
+  { "name": "Лосось с соусом бер блан", "price": 1190, "section": "Горячее", "image": "images/kitchen/42.jpg" },
+  { "name": "Куриная грудка с вешенками", "price": 590, "section": "Горячее", "image": "images/kitchen/43.jpg" },
+  { "name": "Щёчки с картофельным пюре", "price": 790, "section": "Горячее", "image": "images/kitchen/44.jpg" },
+
   { "name": "Боул с креветками", "price": 650, "section": "Боулы", "image": "images/kitchen/10.jpg" },
   { "name": "Боул с куриным бедром", "price": 550, "section": "Боулы", "image": "images/kitchen/11.jpg" },
 

@@ -100,4 +100,42 @@
     &::before { right: 0; }
     &::after { bottom: 0; }
   }
+
+  /* Статичный прицел для страниц без JS-слайдера (заглушка, 404).
+   Линии зафиксированы по центру экрана крестом. */
+  &--static {
+    .crosshair__line--top {
+      transform: translate3d(0, calc(50dvh - #{rem(200)}), 0);
+    }
+
+    .crosshair__line--bottom {
+      transform: translate3d(0, calc(50dvh + #{rem(200)}), 0);
+    }
+
+    .crosshair__line--left {
+      transform: translate3d(calc(50vw - #{rem(300)}), 0, 0);
+    }
+
+    .crosshair__line--right {
+      transform: translate3d(calc(50vw + #{rem(300)}), 0, 0);
+    }
+
+    @include mobile {
+      .crosshair__line--top {
+        transform: translate3d(0, calc(50dvh - #{rem(140)}), 0);
+      }
+
+      .crosshair__line--bottom {
+        transform: translate3d(0, calc(50dvh + #{rem(140)}), 0);
+      }
+
+      .crosshair__line--left {
+        transform: translate3d(calc(50vw - #{rem(160)}), 0, 0);
+      }
+
+      .crosshair__line--right {
+        transform: translate3d(calc(50vw + #{rem(160)}), 0, 0);
+      }
+    }
+  }
 }
